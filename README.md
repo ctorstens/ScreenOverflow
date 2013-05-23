@@ -7,7 +7,7 @@
 
 ## [Schema](https://gist.github.com/ctorstens/e1ce72140a850323d965)
 
-![IMGUR](http://i.imgur.com/CZxEgOs.png)
+![IMGUR](http://i.imgur.com/Wno7iKI.png)
 
 
 ## Elements you'll find
