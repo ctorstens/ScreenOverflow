@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: ScreenOverflow_development
+  database: ScreenOverflow_dev
   pool: 5
-  username: ScreenOverflow
-  password:
+  # username: ScreenOverflow
+  # password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +43,13 @@ test:
   encoding: unicode
   database: ScreenOverflow_test
   pool: 5
-  username: ScreenOverflow
-  password:
+  # username: ScreenOverflow
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: ScreenOverflow_production
+  database: ScreenOverflow
   pool: 5
-  username: ScreenOverflow
-  password:
+  # username: ScreenOverflow
+  # password:
