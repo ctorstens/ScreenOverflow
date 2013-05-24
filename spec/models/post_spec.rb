@@ -11,7 +11,7 @@ describe Post do
 			end
 		end
 
-		context "with invalid input" do
+		context "with missing input" do
 			it "should not create a new post without a title" do
 				build(:post, title: nil).should_not be_valid
 			end
@@ -27,6 +27,18 @@ describe Post do
 			it "should not create a new post without a user id" do
 				build(:post, user: nil).should_not be_valid
 			end
+		end
+	end
+
+	describe 'attributes' do
+		context "valid input" do
+			it "video url should be a real url" do
+			 pending
+			end
+		end
+
+		context "invalid input" do
+			pending
 		end
 	end
 end
