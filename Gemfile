@@ -44,3 +44,4 @@ group :test, :development do
 end
 
 gem "omniauth-google-oauth2" #, "~> 0.1.17"
+gem "haml"
