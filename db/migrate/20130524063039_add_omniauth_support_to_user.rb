@@ -9,4 +9,7 @@ class AddOmniauthSupportToUser < ActiveRecord::Migration
 end
 
 
+	post = Post.new(title: params[:post][:title], video_url: params[:post][:video_url], 
+	content: params[:post][:content],	user: current_user)
+
 
