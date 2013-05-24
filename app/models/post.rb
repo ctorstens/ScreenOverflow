@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   validates :title, :video_url, :content, :user, presence: true
 
-  attr_accessible :title, :video_url, :content, :user
+  attr_accessible :title, :video_url, :content, :user, :tags_attributes
 
 end
 
