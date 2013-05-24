@@ -40,6 +40,7 @@ gem 'bcrypt-ruby' #, '~> 3.0.0'
 group :test, :development do
   gem 'rspec-rails'
   gem 'sextant'
+  gem 'better_errors'
 end
 
 gem "omniauth-google-oauth2" #, "~> 0.1.17"
