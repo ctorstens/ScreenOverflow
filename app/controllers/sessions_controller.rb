@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    # raise request.env["omniauth.auth"].to_yaml
     auth = request.env["omniauth.auth"]
     puts "*" * 100
     p auth.to_yaml
