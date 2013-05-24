@@ -1,6 +1,12 @@
 ScreenOverflow::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  GOOGLE_CONFIG = YAML.load_file("#{::Rails.root}/config/google_auth.yml")
+
+  ENV['GOOGLE_CLIENT_ID'] = GOOGLE_CONFIG['google_client_id']
+  ENV['GOOGLE_CLIENT_SECRET'] = GOOGLE_CONFIG['google_secret']
+  ENV['GOOGLE_REDIRECT_URI'] = GOOGLE_CONFIG['google_redirect_uri']
+  
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
