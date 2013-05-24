@@ -3,4 +3,6 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :tags
   has_many :comments
   has_many :votes, :as => :votable
+
+  attr_accessible :user, :title, :video_url, :content
 end

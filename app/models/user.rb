@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  attr_accessible :first_name, :last_name, :name
+  attr_accessible :name, :email, :username
 
   def self.create_with_omniauth(auth)
     create! do |user|
