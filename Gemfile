@@ -41,8 +41,12 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'sextant'
   gem 'better_errors'
+<<<<<<< HEAD
   gem 'factory_girl_rails'
   gem 'capybara', '2.0.3'
+=======
+  gem 'faker'
+>>>>>>> origin/user_crud
 end
 
 gem "omniauth-google-oauth2" #, "~> 0.1.17"

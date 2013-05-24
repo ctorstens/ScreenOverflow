@@ -5,10 +5,7 @@ class Post < ActiveRecord::Base
   has_many :votes, :as => :votable
 
   acts_as_taggable
-
   validates :title, :video_url, :content, :user, presence: true
-
   attr_accessible :title, :video_url, :content, :user, :tags_attributes
-
 end
 
