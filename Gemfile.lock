@@ -30,12 +30,9 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.0)
       rails (~> 3.0)
-<<<<<<< HEAD
     acts_as_commentable (3.0.1)
-=======
     acts_as_votable (0.5.0)
       rails (>= 3.0.0)
->>>>>>> 9fc09b0162a1a1bad24f2f6ceabf56269247d8ea
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.8.0)
@@ -197,11 +194,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-<<<<<<< HEAD
   acts_as_commentable (= 3.0.1)
-=======
   acts_as_votable (~> 0.5.0)
->>>>>>> 9fc09b0162a1a1bad24f2f6ceabf56269247d8ea
   bcrypt-ruby
   better_errors
   capybara (= 2.0.3)
