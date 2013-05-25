@@ -115,8 +115,7 @@ posts = Post.all
 
 
 posts.each do |post|
-
-  COMMENTS_NUM.times do
+  3.times do
     post.comments.create(
       :user => users.sample,
       :title => Faker::Company.name,
@@ -124,6 +123,8 @@ posts.each do |post|
     )
   end
 end
+
+
 
 
 users.each do |user|
