@@ -1,4 +1,6 @@
 .post
+  %h1 Post
+  = render "/votes/vote_control", :score => (@post.votes.up - @post.votes.down)
   %h4
     =@post.title
   / %iframe{:src => @post.video_url + "?html5=1"}
