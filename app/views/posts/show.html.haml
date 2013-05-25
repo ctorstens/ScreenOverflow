@@ -1,6 +1,8 @@
 .post
   %h1 Post
-  = render "/votes/vote_control", :score => (@post.votes.up - @post.votes.down)
+  - @vote_tally = @post.likes.size - @post.dislikes.size
+  - p @vote_tally
+  = render "/votes/vote_control", :score => @vote_tally
   %h4
     =@post.title
   / %iframe{:src => @post.video_url + "?html5=1"}
