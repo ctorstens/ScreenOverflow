@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe User do
+describe 'Post', :js => true do
 	before :each do
 		visit new_post_path
 	end
@@ -14,7 +14,7 @@ describe User do
 				fill_in "post_content", with: "This is a description"
 				fill_in "post_tag_list", with: "tag, bag, leg"
 				click_button "Create Post"
-			}.to change(Post, :count).by(1)
+			}.to change(Post.count).by(1)
 		end
 	end 
 end
