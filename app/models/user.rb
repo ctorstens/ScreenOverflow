@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def video_count
+    self.posts.count
+  end
+
 end
