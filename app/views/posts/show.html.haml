@@ -4,10 +4,14 @@
 .post
   %h4
     =@post.title
-  %p
-    This will be the imbeded url: 
-    =@post.video_url
+  / %iframe{:src => @post.video_url + "?html5=1"}
+  / %iframe{:src => 'http://www.youtube.com/watch?feature=player_detailpage&v=hNjdBSoIa8k', :height => 420, :width => 315, :frameborder => 0, :allowfullscreen => true}
+  / <iframe width="420" height="315" src="http://www.youtube.com/embed/hNjdBSoIa8k?html5=1" frameborder="0" allowfullscreen></iframe>
+  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => "http://www.youtube.com/embed/hNjdBSoIa8k?html5=1&vq=hd720", :width => "640"}
   %p
     =@post.content
   = link_to "Edit", edit_post_path(@post)
   = link_to "Delete", post_path(@post), :method => :delete
+
+
+
