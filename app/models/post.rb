@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
   validates :title, :video_url, :content, :user, presence: true
-  attr_accessible :title, :video_url, :content, :user, :tags_attributes
+  attr_accessible :title, :video_url, :content, :user, :tag_list
+
 end
 

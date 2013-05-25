@@ -5,11 +5,7 @@
 	<%= f.text_field :video_url %>
 	<%= f.label :content %>
 	<%= f.text_area :content %>
-
-
-	<%= f.fields_for :tags do |t| %>
-		<%= t.label :tag %>
-		<%= t.text_field :name %>
-<% end %>	
+	<%= f.label :tag_list %>
+	<%= f.text_field :tag_list %>
 	<%= f.submit "Create Post" %>
 <% end %>	
