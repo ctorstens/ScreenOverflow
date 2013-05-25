@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :username
 
+  acts_as_voter
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.name = auth["info"]["name"]
