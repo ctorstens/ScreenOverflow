@@ -5,6 +5,7 @@ describe Post do
 	let(:post) {build(:post)}
 
 	describe "can create a new post" do
+
 		context "with valid input" do
 			it "should create a new post" do
 				post.should be_valid
