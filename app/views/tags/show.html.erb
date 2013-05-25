@@ -1,0 +1,16 @@
+<span class="tag-questions">
+  <h3>
+    <%= @tag.name.capitalize %>
+  </h3>
+  
+  <ol>
+   <% @posts.each do |post| %> 
+     <li>
+        <p>
+          <%= link_to post.title, post %><br>
+        </p>
+      </li>
+    <% end %>
+  </ol>
+  
+</span>
