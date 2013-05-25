@@ -1,0 +1,11 @@
+= form_for @post do |f|
+  = f.label :title
+  = f.text_area :title
+  = f.label :video_url
+  = f.text_area :video_url
+  = f.label :content
+  = f.text_area :content
+  = f.label :tag_list
+  = f.text_field :tag_list
+  .form-field
+    =f.submit 'Submit Post'
