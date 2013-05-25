@@ -114,13 +114,17 @@ posts = Post.all
 
 
 
-COMMENTS_NUM.times do
-  Comment.create(
-    :user => users.sample,
-    :post => posts.sample,
-    :content => Faker::Company.bs
-  )
+posts.each do |post|
+
+  COMMENTS_NUM.times do
+    post.comments.create(
+      :user => users.sample,
+      :title => Faker::Company.name,
+      :comment => Faker::Company.bs
+    )
+  end
 end
+
 
 users.each do |user|
   posts.each do |post|
