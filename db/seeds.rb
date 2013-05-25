@@ -137,7 +137,7 @@ users.each do |user|
     end
 
     post.comments.each do |comment|
-      if rand(5) < 1
+      if rand(5) < 3
         comment.liked_by user
       else
         comment.downvote_from user

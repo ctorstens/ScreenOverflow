@@ -19,6 +19,7 @@
   = link_to "Comment"
   
   - @post.comments.each do |comment|
+    = render "/votes/vote_control", :score => (comment.likes.size - comment.dislikes.size)
     %h5
       =comment.title
     %p
