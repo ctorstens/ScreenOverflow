@@ -8,6 +8,7 @@ describe User do
 
 	context 'on new post page' do
 		it "has a new post form" do
+			ApplicationController.any_instance.stub(:current_user) { create(:user) }
 			expect {
 				fill_in "post_title", with: "A title"
 				fill_in "post_video_url", with: "www.google.com"

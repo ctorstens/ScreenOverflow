@@ -44,6 +44,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'capybara', '2.0.3'
   gem 'faker'
+  gem 'debugger'
 end
 
 gem "omniauth-google-oauth2" #, "~> 0.1.17"

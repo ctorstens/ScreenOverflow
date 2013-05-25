@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 		if post.save
 			redirect_to root_path
 		else
-			@errors = post.errors.full_messages.join(' ,')
+			render :new
 		end
 	end
 end
