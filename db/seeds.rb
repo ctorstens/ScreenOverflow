@@ -129,18 +129,21 @@ end
 
 users.each do |user|
   posts.each do |post|
-    Vote.create(
-      :user => user,
-      :votable => post,
-      :value => 1
-    ) if rand(5) < 2
-    post.comments.each do |comment|
-      Vote.create(
-        :user => user,
-        :votable => comment,
-        :value => 1
-      ) if rand(5) < 2
+
+    if rand(5) < 3
+      post.liked_by user
+    else
+      post.downvote_from user
     end
+
+    post.comments.each do |comment|
+      if rand(5) < 1
+        comment.liked_by user
+      else
+        comment.downvote_from user
+      end
+    end
+
   end
 end
 
