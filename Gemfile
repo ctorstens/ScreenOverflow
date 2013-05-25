@@ -51,3 +51,4 @@ gem "omniauth-google-oauth2" #, "~> 0.1.17"
 gem "haml"
 gem 'youtube_it'
 gem 'acts-as-taggable-on'
+gem 'acts_as_votable', '~> 0.5.0'
