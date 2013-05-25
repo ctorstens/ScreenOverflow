@@ -1,0 +1,7 @@
+<ol>
+  <% @tags.each do |tag| %>
+    <li>
+      <p><%= link_to tag.name, "/tags/#{tag.name}"  %></p>
+    </li>
+  <% end %>
+<ol>
