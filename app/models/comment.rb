@@ -1,7 +1,17 @@
 class Comment < ActiveRecord::Base
-  has_many :votes, :as => :votable
-  belongs_to :user
-  belongs_to :post
 
-  attr_accessible :user, :post, :content
+  include ActsAsCommentable::Comment
+
+  belongs_to :commentable, :polymorphic => true
+
+  default_scope :order => 'created_at ASC'
+
+  attr_accessible :user, :post, :content, :title, :comment
+
+  # NOTE: install the acts_as_votable plugin if you
+  # want user to vote on the quality of comments.
+  #acts_as_voteable
+
+  # NOTE: Comments belong to a user
+  belongs_to :user
 end
