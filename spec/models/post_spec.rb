@@ -33,9 +33,9 @@ describe Post do
 
 	describe 'attributes' do
 		context "valid input" do
-			it "video url should be a real url" do
-			 pending
-			end
+
+			it "should have a real video url"
+
 		end
 
 		context "invalid input" do
