@@ -16,11 +16,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.save
-    if @comment.save
-      redirect_to post_path(@comment.commentable)
-    else
-      render :new
-    end
+
+    render :"comments/show", :layout=>false, :locals=>{:comment=>@comment}
+
   end
 
   def edit
