@@ -17,7 +17,7 @@
         <%= link_to "#" + tag.name, "/tags/#{tag.name}" %>
       <% end %>
 
-    <p><%= post.created_at %></p>
+    <p>posted <%= time_ago_in_words(post.created_at) %> ago</p>
   <% end %>
 
 
