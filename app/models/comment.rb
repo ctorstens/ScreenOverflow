@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
 
   default_scope :order => 'created_at ASC'
 
-  attr_accessible :comment, :commentable_id, :commentable_type, :user_id, :post_id
+#todo: secuirty issue
+  attr_accessible :comment, :commentable_id, :commentable_type, :user_id, :post_id,:title, :user
 
 end
