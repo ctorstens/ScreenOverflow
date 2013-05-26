@@ -12,7 +12,11 @@
 
 ## Elements you'll find
 
-### Polymorphic Associations
+#### Polymorphic Associations
+
+### Gems
+
+#### [RedCarpet](https://github.com/vmg/redcarpet)
 
 
 ## Heroku
