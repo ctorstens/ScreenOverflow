@@ -1,4 +1,6 @@
 = form_for @comment do |f| 
+  = f.hidden_field :commentable_id, :value => @post.id
+  = f.hidden_field :commentable_type, :value => "Post"
   = f.label :title
   = f.text_field :title
   = f.label :comment

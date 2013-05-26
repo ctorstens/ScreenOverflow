@@ -8,15 +8,16 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  def new
-    @comment = Comment.new
-  end
+  # def new
+  #   puts "comments NEW getting called"
+  # end
 
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
+    @comment.save
     if @comment.save
-      redirect_to root_path
+      redirect_to post_path(@comment.commentable)
     else
       render :new
     end
@@ -34,8 +35,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    @the_post = @comment.commentable
     @comment.destroy
-    redirect_to root_path
+    redirect_to post_path(@the_post)
   end
 
 end
