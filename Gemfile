@@ -53,3 +53,6 @@ gem 'youtube_it'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable', '3.0.1'
 gem 'acts_as_votable', '~> 0.5.0'
+
+
+gem 'redcarpet'
