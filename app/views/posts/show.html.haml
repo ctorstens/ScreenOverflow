@@ -14,12 +14,7 @@
       = link_to "Edit", edit_post_path(@post)
       = link_to "Delete", post_path(@post), :method => :delete
 
-  = form_for @comment do |f|
-    = f.hidden_field :commentable_id, :value => @post.id
-    = f.hidden_field :commentable_type, :value => "Post"
-    = f.label :comment
-    = f.text_field :comment
-    = f.submit 'Submit Post'
+  = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
 
   - @post.comments.each do |comment|
     = render "/votes/vote_control", :score => (comment.likes.size - comment.dislikes.size)
