@@ -50,15 +50,15 @@ users = User.all
 @new_post.save
 @new_post.reload
 
-@new_post = Post.new(
-  :user => users.sample,
-  :title => 'This is Water',
-  :video_url => 'http://vimeo.com/65823244',
-  :content => 'XXXXXXXXX'
-)
-@new_post.tag_list = "iceberg"
-@new_post.save
-@new_post.reload
+# @new_post = Post.new(
+#   :user => users.sample,
+#   :title => 'This is Water',
+#   :video_url => 'http://vimeo.com/65823244',
+#   :content => 'XXXXXXXXX'
+# )
+# @new_post.tag_list = "iceberg"
+# @new_post.save
+# @new_post.reload
 
 @new_post = Post.new(
   :user => users.sample,
@@ -118,7 +118,6 @@ posts.each do |post|
   3.times do
     post.comments.create(
       :user => users.sample,
-      :title => Faker::Company.name,
       :comment => Faker::Company.bs
     )
   end
