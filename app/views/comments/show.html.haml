@@ -1,9 +1,13 @@
-.comment
-  %h4
-    =@comment.commentable.title
-  %h6
-    =@comment.commentable_type
+%li.comment
+  = render "/votes/vote_control", :score => (comment.likes.size - comment.dislikes.size)
   %p
-    =@comment.comment
-  = link_to "Edit", edit_comment_path(@comment)
-  = link_to "Delete", comment_path(@comment), :method => :delete
+    =link_to comment.user.name, user_path(comment.user)
+  %p
+    Created 
+    =time_ago_in_words(comment.created_at)
+    ago
+  - if current_user.id == comment.user_id
+    = link_to "Edit", edit_comment_path(comment)
+    = link_to "Delete", comment_path(comment), :method => :delete
+  %p
+    =comment.comment

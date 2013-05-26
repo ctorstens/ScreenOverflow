@@ -47,8 +47,8 @@ group :test, :development do
   gem 'debugger'
 end
 
-gem "omniauth-google-oauth2" #, "~> 0.1.17"
-gem "haml"
+gem 'omniauth-google-oauth2' #, "~> 0.1.17"
+gem 'haml'
 gem 'youtube_it'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable', '3.0.1'
