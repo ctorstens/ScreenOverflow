@@ -1,0 +1,25 @@
+/*.vote_up_off {
+background-position: 0px -450px;
+}
+*/
+
+/*.vote_up_off {
+background-position: 0px -560px;
+width: 39px;
+height: 40px;
+display: block;
+margin: 0 auto;
+}
+
+
+.vote_up_off {
+background-image: url('/assets/sprites.png');
+background-repeat: no-repeat;
+overflow: hidden;
+}
+
+.vote_up_off {
+background: url('/assets/sprites.png') no-repeat 0 0;
+width: 67px;
+height: 61px;
+}*/
