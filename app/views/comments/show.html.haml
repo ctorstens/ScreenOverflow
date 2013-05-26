@@ -1,0 +1,9 @@
+.comment
+  %h4
+    =@comment.commentable.title
+  %h6
+    =@comment.commentable_type
+  %p
+    =@comment.comment
+  = link_to "Edit", edit_comment_path(@comment)
+  = link_to "Delete", comment_path(@comment), :method => :delete
