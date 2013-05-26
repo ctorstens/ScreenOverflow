@@ -4,15 +4,15 @@ describe Post do
 	let(:user) {build(:user)}
 	let(:post) {build(:post)}
 
-	describe "can create a new post" do
+	describe "#can create a new post" do
 
-		context "with valid input" do
+		context "#with valid input" do
 			it "should create a new post" do
 				post.should be_valid
 			end
 		end
 
-		context "with missing input" do
+		context "#with missing input" do
 			it "should not create a new post without a title" do
 				build(:post, title: nil).should_not be_valid
 			end
