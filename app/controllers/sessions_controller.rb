@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    # raise request.env["omniauth.auth"].to_yaml
     login request
-    redirect_to root_url, :notice => "Signed in!"
+    redirect_to posts_path, :notice => "Signed in!"
   end
 
   def destroy
