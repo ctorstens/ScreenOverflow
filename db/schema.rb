@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525223537) do
+ActiveRecord::Schema.define(:version => 20130526034837) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -76,6 +76,11 @@ ActiveRecord::Schema.define(:version => 20130525223537) do
     t.string   "provider"
     t.string   "uid"
     t.string   "google_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "refresh_token"
+    t.integer  "expires_at"
+    t.boolean  "expires"
   end
 
   create_table "votes", :force => true do |t|
