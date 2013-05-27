@@ -40,3 +40,4 @@ gem 'acts_as_votable', '~> 0.5.0'
 gem 'redcarpet'
 gem 'coderay'
 
+gem 'impressionist'

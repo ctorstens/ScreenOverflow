@@ -16,6 +16,8 @@
 
 ### Gems
 
+#### [Impressionist](https://github.com/charlotte-ruby/impressionist)
+
 #### [RedCarpet](https://github.com/vmg/redcarpet)
 
 
