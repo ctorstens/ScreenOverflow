@@ -2,10 +2,6 @@
 .post
   %h4
     =@post.title
-
-  / %iframe{:src => @post.video_url + "?html5=1"}
-  / %iframe{:src => 'http://www.youtube.com/watch?feature=player_detailpage&v=hNjdBSoIa8k', :height => 420, :width => 315, :frameborder => 0, :allowfullscreen => true}
-  / <iframe width="420" height="315" src="http://www.youtube.com/embed/hNjdBSoIa8k?html5=1" frameborder="0" allowfullscreen></iframe>
   - the_source = "http://www.youtube.com/embed/" + @post.video_url_code + "?html5=1&vq=hd720"
   %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => the_source, :width => "640"}
   %p
@@ -14,7 +10,8 @@
     ago by
     = link_to @post.user.name, user_path(@post.user)
   %p
-    =@post.content
+    - @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :no_intra_emphases => true, :tables => true, :fenced_code_blocks => true, :superscript => true)
+    = raw @markdown.render(@post.content)
     - if current_user.id == @post.user.id
       = link_to "Edit", edit_post_path(@post)
       = link_to "Delete", post_path(@post), :method => :delete
