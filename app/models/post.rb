@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   acts_as_votable
   
   validates :title, :content, :user, :video_url_code, :video_domain, :presence => true
+
   attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url
 
 
@@ -32,23 +33,13 @@ class Post < ActiveRecord::Base
   end
 
   def parse_youtube_unique_code(url)
-    url =~ /(embed\/|v=)(.{11})/
+    url =~ /(embed\/|v=|\.be\/)(.{11})/
     $2
   end
 
   def youtube?(url)
     !!(url =~ /(youtube.com|youtu.be)/)
   end
-
-
-
-
-
-
-
-
-
-
 
 
 
