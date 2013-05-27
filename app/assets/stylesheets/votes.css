@@ -23,3 +23,27 @@ background: url('/assets/sprites.png') no-repeat 0 0;
 width: 67px;
 height: 61px;
 }*/
+
+ul {
+  list-style:none;
+}
+
+.vote_up_comment_form {
+  display: inline;
+}
+
+.vote_down_comment_form {  
+  display: inline;
+}
+
+#vote_up_post_form {
+  display: inline;
+}
+
+#vote_down_post_form {
+  display: inline;
+}
+
+.post_vote_score {
+  display: inline;
+}

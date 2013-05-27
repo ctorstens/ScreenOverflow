@@ -4,7 +4,17 @@
     =@post.title
   - the_source = "http://www.youtube.com/embed/" + @post.video_url_code + "?html5=1&vq=hd720"
   %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => the_source, :width => "640"}
+
   %p
+
+
+    Added 
+    =time_ago_in_words(@post.created_at)
+    ago
+
+  %p
+
+    =@post.content
     Posted 
     =time_ago_in_words(@post.created_at)
     ago by
@@ -14,23 +24,27 @@
     - if current_user.id == @post.user.id
       = link_to "Edit", edit_post_path(@post)
       = link_to "Delete", post_path(@post), :method => :delete
-    = render "/votes/vote_control", :score => (@post.likes.size - @post.dislikes.size)
+  
+    = render :partial => "/votes/vote_post", :locals => {:post => @post, :score => (@post.likes.size - @post.dislikes.size) }
+
   = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
 
   %ul.comments
     - @post.comments.each do |comment|
-      %li.comment
-        = render "/votes/vote_control", :score => (comment.likes.size - comment.dislikes.size)
-        %p
-          =link_to comment.user.name, user_path(comment.user)
-        %p
-          Created 
-          =time_ago_in_words(comment.created_at)
-          ago
-        - if current_user.id == comment.user_id
-          = link_to "Edit", edit_comment_path(comment)
-          = link_to "Delete", comment_path(comment), :method => :delete
-        %p
-          =comment.comment
+      - @comment = comment
+      %li{ :class => "comment", :id => @comment.id}
 
+        = render "/votes/vote_comment", :score => (comment.likes.size - comment.dislikes.size), :locals => {:comment => @comment, :post => @post}
+
+      %p
+        =link_to comment.user.name, user_path(comment.user)
+      %p
+        Created 
+        =time_ago_in_words(comment.created_at)
+        ago
+      - if current_user.id == comment.user_id
+        = link_to "Edit", edit_comment_path(comment)
+        = link_to "Delete", comment_path(comment), :method => :delete
+      %p
+        =comment.comment
 
