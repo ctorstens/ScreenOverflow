@@ -12,5 +12,3 @@ class VotesController < ApplicationController
     render :json => {:vote_total => (@comment.likes.size - @comment.dislikes.size), :id => @comment.id}, :status => :ok
   end
 end
-
-# 
