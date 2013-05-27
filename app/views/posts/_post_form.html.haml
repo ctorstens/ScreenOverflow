@@ -1,11 +1,11 @@
 = form_for @post do |f|
   = f.label :title
-  = f.text_field :title
+  = f.text_field :title, :required => true
   = f.label :video_url
-  = f.text_field :video_url
+  = f.text_field :video_url, :pattern => "http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)|http://youtu\.be\/(.+)|https://youtu\.be\/(.+)"
   = f.label :content
-  = f.text_area :content
+  = f.text_area :content, :required => true
   = f.label :tag_list
-  = f.text_field :tag_list
+  = f.text_field :tag_list, :required => true
   .form-field
     =f.submit 'Submit Post'
