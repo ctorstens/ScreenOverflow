@@ -20,8 +20,7 @@
     ago by
     = link_to @post.user.name, user_path(@post.user)
   %p
-    - @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true, :no_intra_emphases => true, :tables => true, :fenced_code_blocks => true, :superscript => true)
-    = raw @markdown.render(@post.content)
+    = markdown(@post.content)
     - if current_user.id == @post.user.id
       = link_to "Edit", edit_post_path(@post)
       = link_to "Delete", post_path(@post), :method => :delete
