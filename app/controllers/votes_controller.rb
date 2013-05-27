@@ -13,10 +13,4 @@ class VotesController < ApplicationController
   end
 end
 
-def vote(object, vote)
-  if vote == 'like'
-    object.liked_by current_user
-  else
-    object.downvote_from current_user
-  end
-end
+# 
