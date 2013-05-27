@@ -28,7 +28,10 @@
 
   %ul.comments
     - @post.comments.each do |comment|
-      %li.comment
+      - @comment = comment
+      %li{ :class => "comment", :id => @comment.id}
+
+        = render "/votes/vote_comment", :score => (comment.likes.size - comment.dislikes.size), :locals => {:comment => @comment, :post => @post}
 
       %p
         =link_to comment.user.name, user_path(comment.user)
