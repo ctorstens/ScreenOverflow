@@ -200,6 +200,7 @@ DEPENDENCIES
   bcrypt-ruby
   better_errors
   capybara (= 2.0.3)
+  coderay
   coffee-rails (~> 3.2.1)
   debugger
   factory_girl_rails
