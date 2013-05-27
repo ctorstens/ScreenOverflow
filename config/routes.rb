@@ -8,6 +8,8 @@ ScreenOverflow::Application.routes.draw do
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
+  match "/posts/:id/vote" => "votes#post_vote", :as => :post_vote
+  match "/posts/:id/comment/:id/vote" => "votes#comment_vote", :as => :comment_vote
 
   get 'tags/:name' => 'tags#show'
   get '/tags' => 'tags#index'
