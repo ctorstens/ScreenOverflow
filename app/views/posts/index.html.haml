@@ -1,3 +1,4 @@
+= link_to "Submit Post", new_post_path
 - @posts.each do |post|
   %h4
     =link_to post.title, post_path(post), :method => :get
