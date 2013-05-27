@@ -29,3 +29,14 @@ group :test, :development do
   gem 'populator'
   gem 'debugger'
 end
+
+gem 'omniauth-google-oauth2' #, "~> 0.1.17"
+gem 'haml'
+gem 'youtube_it'
+gem 'acts-as-taggable-on'
+gem 'acts_as_commentable', '3.0.1'
+gem 'acts_as_votable', '~> 0.5.0'
+
+gem 'redcarpet'
+gem 'coderay'
+
