@@ -1,0 +1,15 @@
+=stylesheet_link_tag "votes", :media => "all"
+.vote
+
+  = form_for @post, :url => post_vote_path(@post), :html => {:id => 'vote_up_post_form'}, :remote => true do |f|
+    = f.hidden_field 'id', :id => @post.id
+    = f.hidden_field 'vote', :value => 'like'
+    = f.submit '⬆', class: "btn-link"
+
+  %span.post_vote_score= score
+
+  = form_for @post, :url => post_vote_path(@post), :html => {:id => 'vote_down_post_form'}, :remote => true do |f|
+    = f.hidden_field 'id', :id => @post.id
+    = f.hidden_field 'vote', :value => 'dislike'
+    = f.submit '⬇', class: "btn-link"
+
