@@ -4,15 +4,19 @@ describe Post do
 	let(:user) {build(:user)}
 	let(:post) {build(:post)}
 
-	describe "#can create a new post" do
+	describe "can create a new post" do
 
-		context "#with valid input" do
-			it "should create a new post" do
+		context "with valid input" do
+			it "should create a new post with a long url" do
 				post.should be_valid
+			end
+
+			it "should create a new post with a short url" do
+				build(:post, :video_url => "http://youtu.be/7ZP-pBP59dg").should be_valid
 			end
 		end
 
-		context "#with missing input" do
+		context "with missing input" do
 			it "should not create a new post without a title" do
 				build(:post, title: nil).should_not be_valid
 			end
@@ -29,19 +33,20 @@ describe Post do
 				build(:post, user: nil).should_not be_valid
 			end
 		end
+
+		context "with invalid input" do
+			it "should not create a new post with a non youtube url" do
+				build(:post, :video_url => "http://www.codeschool.com/").should_not be_valid
+			end
+
+			it "should not create a new post with an invalid url" do
+				build(:post, :video_url => "my name is jkai").should_not be_valid
+			end
+		end
 	end
 
-	describe 'attributes' do
-		context "valid input" do
-
-			it "should have a real video url"
-
-		end
-
-		context "invalid input" do
-			pending
-		end
-	
+	describe 'methods' do
+		
 		context "parse youtube url to grab the unique code" do
 			it "should parse the youtube.com url" do
 				post = build(:post, :video_url => "http://www.youtube.com/watch?v=vJmtOp5yajI")
@@ -55,14 +60,33 @@ describe Post do
 			end
 		end
 
+		context "invalid youtube url that looks like a valid url" do
+			it "should not parse the url" do
+				post = build(:post, :video_url => "http://www.google.com/watch?v=vJmtOp5yajI")
+				url = post.video_url
+				post.parse_youtube_unique_code(url).should_not eq("vJmtOp5yajI")
+			end
 
+			it "should not parse the shorten youtu.be url" do
+				post = build(:post, :video_url => "http://crazy.be/payDsNKcRKQ")
+				post.parse_video_url("http://crazy.be/payDsNKcRKQ").should_not eq("payDsNKcRKQ")
+			end
+
+			it "should return false to validate if the url is not youtube" do
+				post = build(:post, :video_url => "http://www.yotube.com/watch?v=vJmtOp5yajI")
+				post.youtube?("http://www.yotube.com/watch?v=vJmtOp5yajI").should eq(false)
+			end				
+
+			it "should return false to validate if the url is not youtu.be" do
+				post = build(:post, :video_url => "http://crazy.be/payDsNKcRKQ")
+				post.youtube?("http://crazy.be/payDsNKcRKQ").should eq(false)
+			end				
 		end
 
 
 
-
-
 	end
+end
 
 
 
