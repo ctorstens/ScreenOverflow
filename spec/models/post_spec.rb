@@ -41,5 +41,28 @@ describe Post do
 		context "invalid input" do
 			pending
 		end
+	
+		context "parse youtube url to grab the unique code" do
+			it "should parse the youtube.com url" do
+				post = build(:post, :video_url => "http://www.youtube.com/watch?v=vJmtOp5yajI")
+				url = post.video_url
+				post.parse_youtube_unique_code(url).should eq("vJmtOp5yajI")
+			end
+			
+			it "should parse the youtu.be url" do
+				post = build(:post, :video_url => "http://youtu.be/payDsNKcRKQ")
+				post.parse_youtube_unique_code("http://youtu.be/payDsNKcRKQ").should eq("payDsNKcRKQ")
+			end
+		end
+
+
+		end
+
+
+
+
+
 	end
-end
+
+
+
