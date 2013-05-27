@@ -17,6 +17,9 @@ class Post < ActiveRecord::Base
     self.video_domain = parsed_url[:domain]
   end
 
+  def video_url
+    return "http://www.youtube.com/embed/" + self.video_url_code + "?html5=1&vq=hd720" if self.video_domain == 'youtube'
+  end
 
   def parse_video_url(url)
     domain = ''
