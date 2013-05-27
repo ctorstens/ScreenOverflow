@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-USERS_NUM = 70
+USERS_NUM = 10
 COMMENTS_NUM = USERS_NUM * 3
 
 USERS_NUM.times do
