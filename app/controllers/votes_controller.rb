@@ -11,4 +11,12 @@ class VotesController < ApplicationController
     vote(@comment, params[:comment][:vote])
     render :json => {:vote_total => (@comment.likes.size - @comment.dislikes.size), :id => @comment.id}, :status => :ok
   end
+
+  def vote(object, vote)
+    if vote == 'like'
+      object.liked_by current_user
+    else
+      object.downvote_from current_user
+    end
+  end
 end
