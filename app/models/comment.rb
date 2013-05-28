@@ -11,4 +11,7 @@ class Comment < ActiveRecord::Base
 
   attr_accessible :comment, :commentable_id, :commentable_type, :user_id, :post_id, :user, :title
 
+  def comment_karma
+    self.likes.size - self.dislikes.size
+  end
 end

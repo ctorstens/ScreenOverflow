@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	def index
-		@posts = Post.all
+		@posts = Post.posts_by_karma
 	end
 
 	def new
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comments = @post.comments_by_karma
 		@comment = Comment.new
 	end
 

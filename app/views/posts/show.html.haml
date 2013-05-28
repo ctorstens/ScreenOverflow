@@ -30,7 +30,7 @@
   = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
 
   %ul.comments
-    - @post.comments.each do |comment|
+    - @comments.each do |comment|
       - @comment = comment
       %li{ :class => "comment", :id => @comment.id}
 
