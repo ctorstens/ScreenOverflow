@@ -10,9 +10,7 @@ $(document).ready(function() {
 
 var postUpVoteSuccess = function() {
   $(".post form#vote_up_post_form").on('ajax:success', function(event, data){
-    $(".post_vote_score").text(data.vote_total).addClass("active")
-    $(".post form#vote_up_post_form input").addClass("active")
-
+    $(".post_vote_score").text(data.vote_total)
   });
 };
 
