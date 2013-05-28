@@ -11,16 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527191858) do
+ActiveRecord::Schema.define(:version => 20130528190545) do
 
   create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
     t.text     "comment"
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
@@ -54,16 +53,18 @@ ActiveRecord::Schema.define(:version => 20130527191858) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",                             :null => false
-    t.text     "content",                           :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "cached_votes_total", :default => 0
-    t.integer  "cached_votes_score", :default => 0
-    t.integer  "cached_votes_up",    :default => 0
-    t.integer  "cached_votes_down",  :default => 0
-    t.string   "video_url_code",                    :null => false
-    t.string   "video_domain",                      :null => false
+    t.string   "title",                              :null => false
+    t.text     "content",                            :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "cached_votes_total",  :default => 0
+    t.integer  "cached_votes_score",  :default => 0
+    t.integer  "cached_votes_up",     :default => 0
+    t.integer  "cached_votes_down",   :default => 0
+    t.string   "video_url_code",                     :null => false
+    t.string   "video_domain",                       :null => false
+    t.string   "video_url_thumbnail"
+    t.string   "video_url_time"
   end
 
   add_index "posts", ["cached_votes_down"], :name => "index_posts_on_cached_votes_down"

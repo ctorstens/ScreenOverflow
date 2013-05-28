@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	def index
-		@posts = Post.all
+		@posts = Post.posts_by_karma
 	end
 
 	def new
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comments = @post.comments_by_karma
 		@comment = Comment.new
 	end
 
@@ -42,6 +43,14 @@ class PostsController < ApplicationController
 
 	def search
 		render :json => Post.all.map(&:title)
+	end
+
+	def youtube_meta
+		video = yt_client.video_by(params[:youtube_id])
+		title = video.title
+		description = video.description
+		tag = video.categories.last.label
+		render :json=> {title: title, description: description, tag: tag}
 	end
 
 end
