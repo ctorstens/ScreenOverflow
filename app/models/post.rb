@@ -15,7 +15,9 @@ class Post < ActiveRecord::Base
   def video_url=(url)
     parsed_url = parse_video_url(url)
     self.video_url_code = parsed_url[:code]
+    self.video_url_thumbnail = parsed_url[:thumbnail]
     self.video_domain = parsed_url[:domain]
+    self.video_url_time = parsed_url[:time]
   end
 
   def video_url
@@ -28,8 +30,10 @@ class Post < ActiveRecord::Base
     if youtube?(url)
       domain = 'youtube'
       code = parse_youtube_unique_code(url)
+      thumbnail = yt_client.video_by(code).thumbnails.first.url
+      time = yt_client.video_by(code).thumbnails.first.time
     end
-    {domain: domain, code: code}
+    {domain: domain, code: code, thumbnail: thumbnail, time: time}
   end
 
   def parse_youtube_unique_code(url)
@@ -46,6 +50,9 @@ class Post < ActiveRecord::Base
     self.tag_list = tag_list.map! { |tag| tag.downcase }.uniq
   end
 
+  def yt_client
+    @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
+  end
 
 end
 

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		 @post = Post.new
+		@post = Post.new
 	end
 
 	def create
@@ -38,6 +38,14 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to root_path
+	end
+
+	def youtube_meta
+		video = yt_client.video_by(params[:youtube_id])
+		title = video.title
+		description = video.description
+		tag = video.categories.last.label
+		render :json=> {title: title, description: description, tag: tag}
 	end
 
 end

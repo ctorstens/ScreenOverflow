@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130528033054) do
     t.string   "video_url_code",                     :null => false
     t.string   "video_domain",                       :null => false
     t.string   "video_url_thumbnail"
+    t.string   "video_url_time"
   end
 
   add_index "posts", ["cached_votes_down"], :name => "index_posts_on_cached_votes_down"
