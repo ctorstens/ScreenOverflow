@@ -11,8 +11,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
-    @comment.save
-    render :"comments/show", :layout=>false, :locals=>{:comment=>@comment}
+    respond_to do |format|
+      if @comment.save
+        format.html { render :partial => "/comments/comment", :layout=>false, :locals =>{ :comment => @comment} }
+      else
+        # render :"comments/show", :layout=>false, :locals=>{:comment=>@comment}
+      end
+    end
   end
 
   def edit

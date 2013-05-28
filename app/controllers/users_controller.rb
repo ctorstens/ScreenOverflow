@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    render :json => Name.all.map(&:name)
+    render :json => User.all.map(&:name)
   end
     
 end

@@ -33,6 +33,3 @@ var commentDownVoteSuccess = function() {
 };
 
 
-
-
-
