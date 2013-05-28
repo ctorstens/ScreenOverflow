@@ -8,17 +8,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  # def new
-  #   puts "comments NEW getting called"
-  # end
-
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.save
-
     render :"comments/show", :layout=>false, :locals=>{:comment=>@comment}
-
   end
 
   def edit

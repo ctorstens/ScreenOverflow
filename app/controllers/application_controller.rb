@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   	session[:user_id] = user.id 
   end
 
-   def yt_client
+  def yt_client
     @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
   end
 
