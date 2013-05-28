@@ -23,4 +23,10 @@ $(document).ready(function () {
     }
 
   ]);
+
+  $('#typeahead_search').on('typeahead:selected', function (d) {
+    console.log(d);
+  });
+
+
 });
