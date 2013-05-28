@@ -47,3 +47,11 @@ ul {
 .post_vote_score {
   display: inline;
 }
+
+.btn-link {
+  color: black;
+}
+
+.active {
+  color: red;
+}
