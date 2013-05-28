@@ -29,4 +29,6 @@ ScreenOverflow::Application.routes.draw do
   get 'tags/:name' => 'tags#show'
   get '/tags' => 'tags#index'
 
+  get '/youtube_url' => 'posts#youtube_meta'
+
 end
