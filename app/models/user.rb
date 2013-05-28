@@ -27,4 +27,23 @@ class User < ActiveRecord::Base
     self.posts.count
   end
 
+  def karma
+    post_karma + comment_karma
+  end
+
+  def post_karma
+    object_karma(self.posts).inject(:+)
+  end
+
+  def comment_karma
+    object_karma(self.comments).inject(:+)
+  end
+
+  def object_karma(objects)    
+    if objects.empty?
+      objects_karma = [0]
+    else
+      objects_karma = objects.map{|object| object = (object.likes.size - object.dislikes.size)}
+    end
+  end
 end

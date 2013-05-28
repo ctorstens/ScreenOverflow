@@ -14,9 +14,11 @@
 
 #### Polymorphic Associations
 
-### Gems
+### Gems et al.
 
 #### [RedCarpet](https://github.com/vmg/redcarpet)
+
+#### [TypeAhead.js](http://twitter.github.io/typeahead.js/)
 
 
 ## Heroku
