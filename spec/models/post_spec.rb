@@ -132,10 +132,7 @@ describe Post do
     		expect {post.undisliked_by :voter => user2}.to change{post.dislikes.size}.by(-1)
     	end
     end
-
   end
-
-
 end
 
 
