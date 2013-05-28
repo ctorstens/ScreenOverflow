@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528190545) do
+ActiveRecord::Schema.define(:version => 20130528234513) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130528190545) do
     t.string   "video_domain",                       :null => false
     t.string   "video_url_thumbnail"
     t.string   "video_url_time"
+    t.integer  "impressions_count",   :default => 0
   end
 
   add_index "posts", ["cached_votes_down"], :name => "index_posts_on_cached_votes_down"

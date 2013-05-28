@@ -1,7 +1,10 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :votes, :as => :votable
+  has_many :impressions, :as=>:impressionable
 
+  is_impressionable :counter_cache => true
+  
   acts_as_taggable
   acts_as_commentable
   acts_as_votable
@@ -64,6 +67,14 @@ class Post < ActiveRecord::Base
 
   def post_karma
     self.likes.size - self.dislikes.size
+  end
+
+  def impression_count
+    impressions.size
+  end
+
+  def unique_impression_count
+    impressions.group(:ip_address).size #UNTESTED: might not be correct syntax
   end
 end
 
