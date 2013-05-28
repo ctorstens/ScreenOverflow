@@ -23,6 +23,7 @@
 
   %ul.comments
     - @comments.each do |comment|
+
       - @comment = comment
       %li{ :class => "comment", :id => @comment.id}
 
