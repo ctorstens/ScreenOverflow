@@ -52,7 +52,7 @@ class Post < ActiveRecord::Base
 
   def comments_by_karma
     self.comments.sort { |a,b| a.comment_karma <=> b.comment_karma }.reverse
-  end
+  end 
 
   def self.posts_by_karma
     self.all.sort { |a,b| a.post_karma <=> b.post_karma }.reverse
