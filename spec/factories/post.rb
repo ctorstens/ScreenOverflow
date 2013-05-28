@@ -5,5 +5,6 @@ FactoryGirl.define do
 		content "Here is a doggy video"
 		user
 	end
+
 end
 
