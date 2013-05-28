@@ -50,9 +50,20 @@ class Post < ActiveRecord::Base
     self.tag_list = tag_list.map! { |tag| tag.downcase }.uniq
   end
 
+  def comments_by_karma
+    self.comments.sort { |a,b| a.comment_karma <=> b.comment_karma }.reverse
+  end 
+
+  def self.posts_by_karma
+    self.all.sort { |a,b| a.post_karma <=> b.post_karma }.reverse
+  end
+  
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
   end
 
+  def post_karma
+    self.likes.size - self.dislikes.size
+  end
 end
 
