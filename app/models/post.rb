@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  
   has_many :votes, :as => :votable
 
   acts_as_taggable
@@ -9,7 +8,7 @@ class Post < ActiveRecord::Base
   
   validates :title, :content, :user, :video_url_code, :video_domain, :presence => true
 
-  attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url
+  attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url, :video_url_thumbnail
 
   before_validation :tag_downcase
 
