@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url
 
+  before_validation :tag_downcase
 
   def video_url=(url)
     parsed_url = parse_video_url(url)
@@ -42,6 +43,9 @@ class Post < ActiveRecord::Base
   end
 
 
+  def tag_downcase
+    self.tag_list = tag_list.map! { |tag| tag.downcase }.uniq
+  end
 
 
 end
