@@ -1,7 +1,12 @@
 require 'spec_helper'
 
+def login_user
+	visit_root_path
+	click_link 'Sign in with Google'
 
-# describe 'Post', :js => true do
+
+
+describe 'Post', :js => true do
 # 	before :each do
 # 		ApplicationController.any_instance.stub(:current_user) { create(:user) }
 # 		visit new_post_path
