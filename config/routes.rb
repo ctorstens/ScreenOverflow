@@ -21,8 +21,6 @@ ScreenOverflow::Application.routes.draw do
 
   resources :comments
 
-  resources :notifications
-
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/posts/:id/vote" => "votes#post_vote", :as => :post_vote
