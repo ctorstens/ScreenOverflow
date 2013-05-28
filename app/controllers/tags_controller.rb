@@ -13,6 +13,4 @@ class TagsController < ApplicationController
     render :json => Tag.all.map(&:name)
   end
 
-
-
 end

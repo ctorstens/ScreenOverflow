@@ -41,6 +41,7 @@ class PostsController < ApplicationController
 	end
 
 	def search
+		puts "POSTS JUST GOT CALLED"
 		render :json => Post.all.map(&:title)
 	end
 
