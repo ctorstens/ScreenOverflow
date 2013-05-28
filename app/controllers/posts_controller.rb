@@ -39,4 +39,8 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def search
+		render :json => Post.all.map(&:title)
+	end
+
 end

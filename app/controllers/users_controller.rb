@@ -8,5 +8,9 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def search
+    render :json => User.all.map(&:name)
+  end
     
 end

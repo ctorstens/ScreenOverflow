@@ -9,6 +9,10 @@ class TagsController < ApplicationController
     @tags = Tag.all
   end
 
+  def search
+    render :json => Tag.all.map(&:name)
+  end
+
 
 
 end
