@@ -1,9 +1,24 @@
 ScreenOverflow::Application.routes.draw do
-
   root :to => 'home#index'
 
-  resources :posts 
-  resources :users
+  resources :posts do
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :tags do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :comments
 
   match "/auth/:provider/callback" => "sessions#create"
@@ -13,5 +28,7 @@ ScreenOverflow::Application.routes.draw do
 
   get 'tags/:name' => 'tags#show'
   get '/tags' => 'tags#index'
+
+  get '/youtube_url' => 'posts#youtube_meta'
 
 end

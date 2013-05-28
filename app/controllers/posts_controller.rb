@@ -41,4 +41,16 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def search
+		render :json => Post.all.map(&:title)
+	end
+
+	def youtube_meta
+		video = yt_client.video_by(params[:youtube_id])
+		title = video.title
+		description = video.description
+		tag = video.categories.last.label
+		render :json=> {title: title, description: description, tag: tag}
+	end
+
 end

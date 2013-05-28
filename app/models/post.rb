@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  
   has_many :votes, :as => :votable
 
   acts_as_taggable
@@ -9,14 +8,16 @@ class Post < ActiveRecord::Base
   
   validates :title, :content, :user, :video_url_code, :video_domain, :presence => true
 
-  attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url
+  attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url, :video_url_thumbnail
 
   before_validation :tag_downcase
 
   def video_url=(url)
     parsed_url = parse_video_url(url)
     self.video_url_code = parsed_url[:code]
+    self.video_url_thumbnail = parsed_url[:thumbnail]
     self.video_domain = parsed_url[:domain]
+    self.video_url_time = parsed_url[:time]
   end
 
   def video_url
@@ -29,8 +30,10 @@ class Post < ActiveRecord::Base
     if youtube?(url)
       domain = 'youtube'
       code = parse_youtube_unique_code(url)
+      thumbnail = yt_client.video_by(code).thumbnails.first.url
+      time = yt_client.video_by(code).thumbnails.first.time
     end
-    {domain: domain, code: code}
+    {domain: domain, code: code, thumbnail: thumbnail, time: time}
   end
 
   def parse_youtube_unique_code(url)
@@ -53,6 +56,10 @@ class Post < ActiveRecord::Base
 
   def self.posts_by_karma
     self.all.sort { |a,b| a.post_karma <=> b.post_karma }.reverse
+  end
+  
+  def yt_client
+    @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
   end
 
   def post_karma
