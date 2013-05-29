@@ -10,7 +10,13 @@ class TagsController < ApplicationController
   end
 
   def search
-    render :json => Tag.all.map(&:name)
+    @tags = Tag.all.map do |t|
+      {
+        :value => t.name,
+        :url => tag_path(t)
+      }
+    end
+    render :json => @tags
   end
 
 end
