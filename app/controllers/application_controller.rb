@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :yt_client
+  helper_method :signed_in_user
 
   private
 
@@ -18,6 +19,16 @@ class ApplicationController < ActionController::Base
 
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
+  end
+
+  def signed_in?
+    !current_user.nil?
+  end
+
+  def signed_in_user
+    unless signed_in?
+      redirect_to root_url, notice: "Please sign in."
+    end
   end
 
 end
