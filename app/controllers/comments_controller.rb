@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
-    redirect_to comment_path(@comment)
+    redirect_to post_path(@comment.commentable)
   end
 
   def destroy

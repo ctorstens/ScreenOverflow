@@ -1,1 +1,6 @@
-= render :partial => "comment_form", :layout => false, :locals => {:user => @user, :post => @post}
+= form_for @comment do |f|
+  = f.hidden_field :commentable_id, :value => @post.id
+  = f.hidden_field :commentable_type, :value => "Post"
+  = f.label :comment
+  = f.text_field :comment
+  = f.submit 'Submit Post'
