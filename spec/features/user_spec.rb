@@ -7,7 +7,7 @@ describe 'User', :js => false do
 	describe "login" do 
 		before(:each) do
 			OmniAuth.config.test_mode = true
-			ApplicationController.any_instance.stub(:login)
+			OmniAuth.config.mock_auth[:default] = OmniAuth.config.mock_auth[:google]
 		end
 
 		it "can login with google" do
@@ -24,7 +24,7 @@ describe 'User', :js => false do
 
 		it "can go to the users profile page" do
 			visit posts_path
-			click_link(user.name)
+			page.find('.header').click_link(user.name)
 			page.should have_content(user.name)
 		end
 
@@ -38,7 +38,5 @@ describe 'User', :js => false do
 			post.tag_list = "hello, kris, joe"
 			page.should have_content(user.posts.first.tags.first)
 		end
-
-
 	end
 end

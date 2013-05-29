@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :signed_in_user
+
 
   def index
     @comments = Comment.all
@@ -16,7 +18,7 @@ class CommentsController < ApplicationController
         @comment.liked_by current_user
         format.html { render :partial => "/comments/comment", :layout=>false, :locals =>{ :comment => @comment} }
       else
-        # render :"comments/show", :layout=>false, :locals=>{:comment=>@comment}
+        flash[:notice] = "Not a valid Comment."  
       end
     end
   end

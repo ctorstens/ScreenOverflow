@@ -9,12 +9,13 @@
     Posted 
     =time_ago_in_words(@post.created_at)
     ago by
-    = link_to @post.user.name, user_path(@post.user) 
-    %br
-    - if current_user.id == @post.user.id
-      = link_to "Edit", edit_post_path(@post)
-      = link_to "Delete", post_path(@post), :method => :delete
-    
+    = link_to @post.user.name, user_path(@post.user)
+  %p
+    View Count: 
+    = @post.impression_count
+  - if current_user.id == @post.user.id
+    = link_to "Edit", edit_post_path(@post)
+    = link_to "Delete", post_path(@post), :method => :delete
   %p
     = markdown(@post.content)
     = render :partial => "/votes/vote_post", :locals => {:post => @post, :score => (@post.likes.size - @post.dislikes.size) }
@@ -23,10 +24,5 @@
 
   %ul.comments
     - @comments.each do |comment|
-
       - @comment = comment
-
       = render "/comments/comment", :locals => {:comment => @comment, :post => @post}
-
-
-
