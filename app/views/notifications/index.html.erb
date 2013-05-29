@@ -1,3 +1,12 @@
-<% @activities.each do |activity| %>
-  <%= render_activity(activity) %>
-<% end %>
+<h1> News Feed </h1>
+
+<hr>
+<div class="newsfeed_container">
+  <% @activities.each do |activity| %>
+    <% if activity.key == "post.create" and activity.trackable %>
+      <div class="activity">
+        <%= render_activity(activity) %>
+      </div>  
+    <% end %> 
+  <% end %>
+</div>

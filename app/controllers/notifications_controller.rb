@@ -1,4 +1,4 @@
-class NotificationsController < ActionController::Base
+class NotificationsController < ApplicationController
 
   def index
     @activities = PublicActivity::Activity.all
