@@ -1,6 +1,5 @@
 = link_to "Submit Post", new_post_path
 - @posts.each do |post|
   %h4
-    Karma:
     =post.post_karma
     =link_to post.title, post_path(post), :method => :get
