@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :impressions, :as=>:impressionable
 
   is_impressionable :counter_cache => true
-  
+
   acts_as_taggable
   acts_as_commentable
   acts_as_votable
@@ -14,6 +14,9 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url, :video_url_thumbnail
 
   before_validation :tag_downcase
+
+  include PublicActivity::Model
+  tracked
 
   def video_url=(url)
     parsed_url = parse_video_url(url)

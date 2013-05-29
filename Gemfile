@@ -41,3 +41,5 @@ gem 'redcarpet'
 gem 'coderay'
 
 gem 'impressionist'
+
+gem 'public_activity'
