@@ -6,6 +6,5 @@ $(document).ready(function() {
     $('#comment_comment').val('');
     commentUpVoteSuccess();
     commentDownVoteSuccess();
-
   });
 });
