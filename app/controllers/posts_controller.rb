@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_filter :signed_in_user
 
 	def index
 		@posts = Post.posts_by_karma
