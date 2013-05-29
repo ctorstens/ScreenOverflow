@@ -2,11 +2,13 @@
 
 <hr>
 <div class="newsfeed_container">
-  <% @activities.each do |activity| %>
-    <% if activity.key == "post.create" and activity.trackable %>
-      <div class="activity">
-        <%= render_activity(activity) %>
-      </div>  
-    <% end %> 
-  <% end %>
+	<% if @activity %>
+	  <% @activities.each do |activity| %>
+	    <% if activity.key == "post.create" and activity.trackable %>
+	      <div class="activity">
+	        <%= render_activity(activity) %>
+	      </div>  
+	    <% end %> 
+	  <% end %>
+	<% end %>
 </div>
