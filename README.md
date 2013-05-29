@@ -16,6 +16,8 @@
 
 ### Gems et al.
 
+#### [Impressionist](https://github.com/charlotte-ruby/impressionist)
+
 #### [RedCarpet](https://github.com/vmg/redcarpet)
 
 #### [TypeAhead.js](http://twitter.github.io/typeahead.js/)

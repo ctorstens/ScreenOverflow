@@ -10,6 +10,7 @@ USERS_NUM.times do
 end
 users = User.all 
 
+Post.tracked(:owner=>Proc.new{ |controller, post| post.user })
 
 @new_post = Post.new(
   :user => users.sample,

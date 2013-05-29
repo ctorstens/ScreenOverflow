@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :votes, :as => :votable
+  has_many :impressions, :as=>:impressionable
+
+  is_impressionable :counter_cache => true
 
   acts_as_taggable
   acts_as_commentable
@@ -11,6 +14,9 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :user, :tag_list, :video_url_code, :video_domain, :video_url, :video_url_thumbnail
 
   before_validation :tag_downcase
+
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 
   def video_url=(url)
     parsed_url = parse_video_url(url)
@@ -64,6 +70,14 @@ class Post < ActiveRecord::Base
 
   def post_karma
     self.likes.size - self.dislikes.size
+  end
+
+  def impression_count
+    impressions.size
+  end
+
+  def unique_impression_count
+    impressions.group(:ip_address).size #UNTESTED: might not be correct syntax
   end
 end
 

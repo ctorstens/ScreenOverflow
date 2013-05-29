@@ -10,6 +10,11 @@ require 'capybara/rspec'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+#johny: made sure that this is called before EVERY THING. RUNS WHEN
+#rspec STARTSSSS
+
+Post.tracked(:owner=>Proc.new{ |controller, post| post.user })
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework

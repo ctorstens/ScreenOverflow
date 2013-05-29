@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	before_filter :signed_in_user
+
+	impressionist :actions=>[:show,:index]
 
 	def index
 		@posts = Post.posts_by_karma
@@ -23,6 +26,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comments = @post.comments_by_karma
 		@comment = Comment.new
+		impressionist(@post, message:"wtf is a widget?")
 	end
 
 	def edit

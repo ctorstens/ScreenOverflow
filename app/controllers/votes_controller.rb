@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :signed_in_user
+
 
   def post_vote
     @post = Post.find(params[:post][:id])
