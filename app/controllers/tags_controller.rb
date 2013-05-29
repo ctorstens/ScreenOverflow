@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
   def show
-    @tag = Tag.find_by_name(params[:id])
+    @tag = Tag.find_by_name(params[:id]) || Tag.find_by_id(params[:id])
     @posts = Post.tagged_with(@tag.name)
   end
 
@@ -13,7 +13,7 @@ class TagsController < ApplicationController
     @tags = Tag.all.map do |t|
       {
         :value => t.name,
-        :url => tag_path(t)
+        :url => "/tags" + t.name
       }
     end
     render :json => @tags
