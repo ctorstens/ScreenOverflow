@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_filter :signed_in_user
+
 
   def show
     @tag = Tag.find_by_name(params[:id])
@@ -10,7 +12,13 @@ class TagsController < ApplicationController
   end
 
   def search
-    render :json => Tag.all.map(&:name)
+    @tags = Tag.all.map do |t|
+      {
+        :value => t.name,
+        :url => tag_path(t)
+      }
+    end
+    render :json => @tags
   end
 
 end

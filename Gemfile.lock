@@ -57,6 +57,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     columnize (0.3.6)
+    database_cleaner (1.0.1)
     debugger (1.5.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -212,6 +213,7 @@ DEPENDENCIES
   capybara (= 2.0.3)
   coderay
   coffee-rails (~> 3.2.1)
+  database_cleaner
   debugger
   factory_girl_rails
   faker

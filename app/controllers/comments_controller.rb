@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :signed_in_user
+
 
   def index
     @comments = Comment.all
@@ -13,6 +15,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
+        @comment.liked_by current_user
         format.html { render :partial => "/comments/comment", :layout=>false, :locals =>{ :comment => @comment} }
       else
         flash[:notice] = "Not a valid Comment."  
@@ -22,12 +25,13 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @post = @comment.commentable
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
-    redirect_to comment_path(@comment)
+    redirect_to post_path(@comment.commentable)
   end
 
   def destroy
