@@ -14,20 +14,7 @@
   <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
 
   <% @user.posts.each do |post| %>
-  <dl class="dl-horizontal">
-  	<dt class="karma"><%= post.post_karma %></dt>
-    <dd class="user_post"><a class="user_post_title"><%= link_to post.title, post_path(post) %></a>
-    	
-    <span class="user_post_img"><%= link_to(image_tag(post.video_url_thumbnail), post_path(post)) %></span>
-      <div class="post_tags"><% post.tags.each do |tag| %>
-       <a> <%= link_to "#" + tag.name, "/tags/#{tag.name}" %></a>
-      <% end %>
-    </div>
-
-    <span class="post_time">posted <%= time_ago_in_words(post.created_at) %> ago</span>
-  	</dd>
-   </dl>
-   <hr>
+    <%= render 'posts/post_snapshot', :post => post %>
   <% end %> 
 	
 
