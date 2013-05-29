@@ -10,6 +10,7 @@
     =time_ago_in_words(@post.created_at)
     ago by
     = link_to @post.user.name, user_path(@post.user) 
+    = @post.impression_count
     %br
     - if current_user.id == @post.user.id
       = link_to "Edit", edit_post_path(@post)
@@ -23,10 +24,5 @@
 
   %ul.comments
     - @comments.each do |comment|
-
       - @comment = comment
-
       = render "/comments/comment", :locals => {:comment => @comment, :post => @post}
-
-
-
