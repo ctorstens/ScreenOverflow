@@ -1,0 +1,27 @@
+<dl class="dl-horizontal post_list_container">
+  <div class="post_list_element">
+  	<dt class="karma">
+      <%= post.post_karma %>
+    </dt>
+    <dd class="user_post">
+    <div class="title_container">  
+      <%= link_to post.title, post_path(post), :class => "user_post_title" %>
+    </div>	
+      <span class="user_post_img"><%= link_to(image_tag(post.video_url_thumbnail), post_path(post)) %></span>
+      <div class="post_tags"><% post.tags.each do |tag| %>
+        <%= link_to "#" + tag.name, "/tags/#{tag.name}" %>
+      <% end %>
+      </div>
+    <div class="view_count">
+      <p> Views: <%= post.impressions_count %></a>
+    </div>
+    <div class="post_bottom">
+      <% if post.user %>
+        <span class="user_name"><%= link_to post.user.name, user_path(post.user) %></span>
+        <% end %>
+      <span class="post_time"><%= post.created_at.strftime("%b %d, %Y") %> </span>
+    </div>
+  	</dd>
+  </div>
+</dl>
+<hr>
