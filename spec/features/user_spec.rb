@@ -24,7 +24,7 @@ describe 'User', :js => false do
 
 		it "can go to the users profile page" do
 			visit posts_path
-			click_link(user.name)
+			page.find('.header').click_link(user.name)
 			page.should have_content(user.name)
 		end
 
