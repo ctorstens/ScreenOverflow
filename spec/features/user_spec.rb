@@ -12,7 +12,7 @@ describe 'User', :js => false do
 
 		it "can login with google" do
 			visit root_path
-			click_link 'Sign in with Google'
+			click_link 'Sign In'
 			page.current_path.should eq(posts_path)
 		end
 	end
