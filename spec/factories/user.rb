@@ -5,5 +5,6 @@ FactoryGirl.define do
     username 'jay_flow'
     provider 'google'
     uid '1234567'
+    name "Joe Flow"
   end
 end

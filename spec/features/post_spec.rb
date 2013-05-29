@@ -9,21 +9,27 @@ describe 'Post' do
 	end
 
 	context "post index page" do 
-		it "should have list of posts" do
+		before :each do
 			visit posts_path
+		end
+
+		it "should have list of posts" do
 			page.should have_content(post.title)
 		end
 
-		it "post title should be a link do post" do
-			visit posts_path
+		it "post title should be a link to the post" do
 			click_link post.title
 			page.should have_content(post.title)
 		end
 
+		it "should have a link to submit a new post" do
+			click_link "Submit Post"
+			page.should have_button("Submit Post")
+		end
+
 	end
 
-	context "on new post page" do
-		
+	context "on new post page" do		
 		it "has a new post form" do
 			visit new_post_path
 			expect {
