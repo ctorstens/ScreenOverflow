@@ -28,6 +28,7 @@ group :test, :development do
   gem 'faker'
   gem 'populator'
   gem 'debugger'
+  gem 'pry-rails'
 end
 
 group :test do

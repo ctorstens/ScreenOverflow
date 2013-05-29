@@ -1,1 +1,24 @@
-<%= activity.trackable.comment %>
+
+
+
+<div class="video_create">
+  <div class="video_info">
+
+ <% if activity.owner.image_url %>    
+    <%= image_tag activity.owner.image_url %>
+  <% else %>  
+    <%= image_tag asset_path 'default_profile.png' %>
+  <% end %>
+
+
+  <%= link_to activity.owner.name, user_path(activity.owner.id) %> commented "<%=  activity.trackable.comment %>" on 
+  <%=  link_to activity.trackable.commentable.user.name + '\'s', user_path(activity.trackable.commentable.user.id) %> video 
+  <%=  link_to activity.trackable.commentable.title, post_path(activity.trackable.commentable.id) %> 
+  <%= time_ago_in_words(activity.created_at) %> ago
+
+  </div>
+  
+  <div class="video_preview">
+  </div>
+</div>
+  
