@@ -2,5 +2,5 @@
   = f.hidden_field :commentable_id, :value => @post.id
   = f.hidden_field :commentable_type, :value => "Post"
   = f.label :comment
-  = f.text_area :comment, :required => true
+  = f.text_field :comment, :required => true
   = f.submit 'Submit Post'
