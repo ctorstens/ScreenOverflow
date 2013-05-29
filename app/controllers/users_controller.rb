@@ -11,7 +11,13 @@ class UsersController < ApplicationController
   end
 
   def search
-    render :json => User.all.map(&:name)
+    @users = User.all.map do |u|
+      {
+        :value => u.name,
+        :url => user_path(u)
+      }
+    end
+    render :json => @users
   end
     
 end
