@@ -42,7 +42,13 @@ class PostsController < ApplicationController
 	end
 
 	def search
-		render :json => Post.all.map(&:title)
+		@posts = Post.all.map do |p|
+			{
+				:value => p.title,
+				:url => post_path(p)
+			}
+		end
+		render :json => @posts
 	end
 
 	def youtube_meta
