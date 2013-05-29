@@ -1,20 +1,27 @@
-
 <div class="video_create">
   <div class="video_info">
 
- <% if activity.owner.image_url %>    
-    <%= image_tag activity.owner.image_url %>
-  <% else %>  
+   <% if activity.owner.image_url %>    
+     <%= image_tag activity.owner.image_url %>
+   <% else %>  
     <%= image_tag asset_path 'default_profile.png' %>
-  <% end %>
+   <% end %>
+  
+  <span class="video_activity">
+   <%= link_to activity.trackable.title, post_path(activity.trackable) %> was posted by
+   <%= link_to activity.owner.name, user_path(activity.owner) %> on
+   <%= activity.trackable.created_at.strftime("%b %d, %Y") %>
+  </span> 
+ </div>
 
-  <%= link_to activity.trackable.title, post_path(activity.trackable) %> was posted by
-  <%= link_to activity.owner.name, user_path(activity.owner) %> on
-  <%= activity.trackable.created_at.strftime("%b %d, %Y") %>
-  </div>
-  
   <div class="video_preview">
-      <%= link_to(image_tag(activity.trackable.video_url_thumbnail), post_path(activity.trackable))  %>
+    <%= link_to(image_tag(activity.trackable.video_url_thumbnail), post_path(activity.trackable))  %>     
   </div>
+
+    <div class="video_meta">
+      <% activity.trackable.tags.each do |tag| %>
+        <span><%= link_to "#"+tag.name, "/tags/#{tag.name}" %></span>
+      <% end %>
+    </div> 
+
 </div>
-  

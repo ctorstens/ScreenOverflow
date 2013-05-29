@@ -19,3 +19,8 @@
 .video_create {
   margin-bottom: 22px;
 }
+
+.video_meta {
+  display: inline-block;
+  padding-left: 52px;
+}
