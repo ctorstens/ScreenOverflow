@@ -13,8 +13,11 @@ describe 'Post' do
 			visit posts_path
 			page.should have_content(post.title)
 		end
-		it "post title should be a link do post" do
 
+		it "post title should be a link do post" do
+			visit posts_path
+			click_link post.title
+			page.should have_content(post.title)
 		end
 
 	end
@@ -33,5 +36,4 @@ describe 'Post' do
 		end
 	end 
 end
-# end
 
