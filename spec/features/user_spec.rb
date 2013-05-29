@@ -22,11 +22,11 @@ describe 'User', :js => false do
 			ApplicationController.any_instance.stub(:current_user) { user }
 		end
 
-		it "can go to the users profile page" do
-			visit posts_path
-			page.find('.header').click_link(user.name)
-			page.should have_content(user.name)
-		end
+		it "can go to the users profile page" #do
+		# 	visit posts_path
+		# 	page.find('.header').click_link(user.name)
+		# 	page.should have_content(user.name)
+		# end
 
 		it "has a list of the users posts" do
 			visit user_path(user)
