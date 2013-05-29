@@ -122,10 +122,10 @@ html {
               span {
                 font: 32px "Dosis", sans-serif;
                 text-transform: uppercase;
-                position: absolute;
-                left: 180px;
+                position: fixed;
+                left: 200px;
                 top: 5px;
-                // display: none;
+                display: none;
               }
               &:hover span {
                 display: block;
