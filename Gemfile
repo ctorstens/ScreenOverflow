@@ -48,3 +48,4 @@ gem 'coderay'
 gem 'impressionist'
 
 gem 'public_activity'
+gem 'pusher'
