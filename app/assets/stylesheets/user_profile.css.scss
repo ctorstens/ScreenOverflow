@@ -36,14 +36,10 @@
 	position: absolute;
 	z-index: 2000;
 }
-/*
-.user_karma {
-	position: absolute;
-	margin: 0;
-	
-	top: 20px;
-}*/
 
+.user_karma h5 {
+	font-size: 50px;
+}
 
 .user_profile {
 line-height: 20px;
@@ -55,6 +51,10 @@ line-height: 20px;
 	position: absolute;
 	top: 220px;
 	left: 20px;
+}
+
+.user_profile_name {
+	width: 400px;
 }
 
 
