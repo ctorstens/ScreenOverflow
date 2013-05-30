@@ -9,6 +9,11 @@ gem 'acts-as-taggable-on'
 gem 'acts_as_commentable', '3.0.1'
 gem 'acts_as_votable', '~> 0.5.0'
 gem 'redcarpet'
+gem 'coderay'
+gem 'impressionist'
+gem 'public_activity'
+gem 'pusher'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -35,17 +40,3 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'omniauth-google-oauth2' #, "~> 0.1.17"
-gem 'haml'
-gem 'youtube_it'
-gem 'acts-as-taggable-on'
-gem 'acts_as_commentable', '3.0.1'
-gem 'acts_as_votable', '~> 0.5.0'
-
-gem 'redcarpet'
-gem 'coderay'
-
-gem 'impressionist'
-
-gem 'public_activity'
-gem 'pusher'

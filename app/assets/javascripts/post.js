@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $('#post_video_url').on('keyup',function(e){ 
       var youtube = $(this).val(); 
       if (/http:\/\/www\.youtube\.com\/(.+)|https:\/\/www\.youtube\.com\/(.+)|http:\/\/youtu\.be\/(.+)|https:\/\/youtu\.be\/(.+)/.test(youtube)){
@@ -12,4 +11,5 @@ $(document).ready(function() {
       });
     };
   });
+
 });
