@@ -1,21 +1,42 @@
 <div class='header'>
-  <h1><%= link_to "ScreenOverflow", posts_path %></h1>
 
-  <% if current_user %>
-     <%= link_to current_user.name, "/users/#{current_user.id}" %>
-     <%= link_to "Sign Out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-  <% end %>
+  <div id="squares_bar">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to posts_path do %>
+            <span>Posts</span>
+          <% end %>
+        <li>
+          <%= link_to tags_path do %>
+            <span>Tags</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to users_path do %>
+            <span>Users</span>
+          <% end %>
+        </li>
+        <li>
+          <% if current_user %>
+            <%= link_to signout_path do %>
+              <span>Logout</span>
+            <% end %>
+          <% else %>
+            <%= link_to "/auth/google_oauth2" do %>
+              <span>Sign In</span>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-  <%= link_to "+Posts", new_post_path %>
-  <%= link_to "Posts", posts_path %>
-  <%= link_to "Tags", tags_path %>
-  <%= link_to "Users", users_path %>
-
-  <div class="well">  
-  <input type="text" id="typeahead_search" />  
+  <div class="search_bar">  
+    <input type="text" id="typeahead_search" />  
   </div>  
 
-  <hr>
 </div>
+
+
+
