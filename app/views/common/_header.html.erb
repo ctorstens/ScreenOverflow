@@ -1,12 +1,24 @@
 <div class='header'>
 
+<% if current_user %>
   <div id="squares_bar">
     <nav>
       <ul>
         <li>
+          <%= link_to notifications_path do %>
+            <span>NewsFeed</span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to posts_path do %>
             <span>Posts</span>
           <% end %>
+        </li>
+        <li>
+          <%= link_to new_post_path do %>
+            <span>Add a Post</span>
+          <% end %>
+        </li>
         <li>
           <%= link_to tags_path do %>
             <span>Tags</span>
@@ -15,6 +27,11 @@
         <li>
           <%= link_to users_path do %>
             <span>Users</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <span>Your Profile</span>
           <% end %>
         </li>
         <li>
@@ -34,6 +51,22 @@
   <div class="search_bar">  
     <input type="text" id="typeahead_search" />  
   </div>  
+<% else %>
+  <div id="squares_bar">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "/auth/google_oauth2" do %>
+            <span>Sign In</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+
+  
+
 </div>
 
 

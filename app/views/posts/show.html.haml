@@ -22,7 +22,7 @@
     %hr
       = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
 
-    %ul.comments
+    .comments
       - @comments.each do |comment|
         - @comment = comment
         = render "/comments/comment", :locals => {:comment => @comment, :post => @post}
