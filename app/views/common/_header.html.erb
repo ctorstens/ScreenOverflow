@@ -1,5 +1,6 @@
 <div class='header'>
 
+<% if current_user %>
   <div id="squares_bar">
     <nav>
       <ul>
@@ -28,13 +29,11 @@
             <span>Users</span>
           <% end %>
         </li>
-        <% if current_user %>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <span>Your Profile</span>
-            <% end %>
-          </li>
-        <% end %>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <span>Your Profile</span>
+          <% end %>
+        </li>
         <li>
           <% if current_user %>
             <%= link_to signout_path do %>
@@ -52,6 +51,22 @@
   <div class="search_bar">  
     <input type="text" id="typeahead_search" />  
   </div>  
+<% else %>
+  <div id="squares_bar">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "/auth/google_oauth2" do %>
+            <span>Sign In</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+
+  
+
 </div>
 
 
