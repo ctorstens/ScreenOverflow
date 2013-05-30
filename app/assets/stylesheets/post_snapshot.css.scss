@@ -1,0 +1,113 @@
+dt.karma {
+	font-size: 30px;
+	display: inline-block;
+	vertical-align: center;
+	text-align: center;
+	width: 60px;
+	height: 100px;
+	padding-top: 5px;
+}
+
+dt.karma:hover {
+	transform:scale(1.2, 1.2);
+	-ms-transform:scale(1.2, 1.2);
+	-webkit-transform:scale(1.2, 1.2);
+}
+
+dd a.post_title{
+	font-weight: bold;
+	font-size: 16px;
+	position: relative;
+	color: black;
+}
+
+.title_container {
+	width: 400px;
+}
+
+
+.post_img {
+	position: absolute;
+	right: 10px;
+	top: 12px;
+}
+
+.user_post_img:hover {
+	transform:scale(1.2, 1.2);
+	-ms-transform:scale(1.2, 1.2); 
+	-webkit-transform:scale(1.2, 1.2);
+
+}
+
+.post_tags {
+	display: inline-block;
+	vertical-align: center;
+	font-size: 10px;
+}
+
+span.post_time {
+	position: absolute;
+	right: 68px;
+}
+
+h3.num_of_vids {
+	text-align: right;
+}
+
+
+dl.post_list_container {
+	width: 100%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgba(0,0,0,.1);
+	padding: 20px;
+}
+
+dl.post_list_container:hover {
+	background-color: rgba(0,0,0,.1);
+}
+
+.post_list_element {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-right: 0px;
+
+}
+
+dd.post_snapshot {
+	height: 100px;
+	margin: 0px;
+}
+
+hr {
+	margin: 10px;
+}
+
+span.user_name a {
+	position: relative;
+	float: left;
+	color: grey;
+}
+
+span.user_name a:hover {
+	font-size: 15px;
+	text-decoration: none;
+
+}
+
+div.post_bottom {
+	position: absolute;
+	width: 65%;
+	height: 20px;
+	bottom: 0px;
+	margin-left: 60px;
+}
+
+.view_count {
+	position: absolute;
+	font-size: 15px;
+	font-weight: bold;
+	right: 40px;
+	top: -8px;
+}
