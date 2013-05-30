@@ -7,7 +7,10 @@ $background_header: #393939;
 $background_square_1: #80BCA3;
 $background_square_2: #c6c6a4;
 $background_square_3: #E6AC27;
-$background_square_4: #BF4D28;
+$background_square_4: #839C85;
+$background_square_5: #A0BC38;
+$background_square_6: #79596F;
+$background_square_7: #BF4D28;
 $background_post_container: $background_square_2;
 $background_search: $background_post_container;
 
@@ -61,31 +64,57 @@ html {
               display: block;
               width: 32px;
               height: 32px;
-              // background-image: url(icons.png);
-              // background-repeat: no-repeat;
+              // background-image: url(header_sprites.png);
+              background-repeat: no-repeat;
             }
             &:nth-child(1) a {
               background-color: $background_square_1;
-              background-position: 28px 28px;
+              background-image: url(newsfeed.png);
+              background-size: 66%;
+              background-position: center;
             }
             &:nth-child(2) a {
               background-color: $background_square_2;
-              background-position: 28px -96px;
+              background-image: url(posts.png);
+              background-size: 66%;
+              background-position: center;
             }
             &:nth-child(3) a {
               background-color: $background_square_3;
-              background-position: 28px -222px;
+              background-image: url(add_post.png);
+              background-size: 66%;
+              background-position: center;
             }
             &:nth-child(4) a {
               background-color: $background_square_4;
-              background-position: 28px -342px;
+              background-image: url(tags.png);
+              background-size: 66%;
+              background-position: center;
+            }
+            &:nth-child(5) a {
+              background-color: $background_square_5;
+              background-image: url(users.png);
+              background-size: 66%;
+              background-position: center;
+            }
+            &:nth-child(6) a {
+              background-color: $background_square_6;
+              background-image: url(user_profile.png);
+              background-size: 66%;
+              background-position: center;
+            }
+            &:nth-child(7) a {
+              background-color: $background_square_7;
+              background-image: url(login_out.png);
+              background-size: 66%;
+              background-position: center;
             }
             a {
               span {
                 font: 32px "Dosis", sans-serif;
                 text-transform: uppercase;
                 position: fixed;
-                left: 200px;
+                left: 330px;
                 top: 5px;
                 display: none;
               }
@@ -104,6 +133,15 @@ html {
             }
             &:nth-child(4) a span {
               color: $background_square_4;
+            }
+            &:nth-child(5) a span {
+              color: $background_square_5;
+            }
+            &:nth-child(6) a span {
+              color: $background_square_6;
+            }
+            &:nth-child(7) a span {
+              color: $background_square_7;
             }
           }
         }
@@ -147,6 +185,16 @@ html {
             font: 20px "Dosis", sans-serif;
           }
         }
+      }
+      .comment {
+        background-color: $background_post_container;
+        a, p {
+          color: $font_color_post_element;
+        }
+        .comment_user {
+          font: 20px "Dosis", sans-serif;
+        }
+
       }
     }
   }
