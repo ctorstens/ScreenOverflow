@@ -23,7 +23,7 @@ describe 'Post' do
 		end
 
 		it "should have a link to submit a new post" do
-			click_link "Submit Post"
+			click_link "+Post"
 			page.should have_button("Submit Post")
 		end
 

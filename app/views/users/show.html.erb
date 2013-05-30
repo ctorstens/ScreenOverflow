@@ -1,22 +1,20 @@
-<div class="profile_info">
-	<h3><%= @user.name %></h3>
-	<h5>Karma: <%= @user.karma %></h5>
-	<h5>Post Karma: <%= @user.post_karma %></h5>
-	<h5>Comment Karma: <%= @user.comment_karma %></h5>
+<div class="profile_info">  
+  <div>
+  	<h3><%= @user.name %></h3>
+      <% if @user.image_url %>
+        <%= image_tag @user.image_url, :class => "user_image" %>
+      <% else %>
+        <%= image_tag 'default_profile.png', :class => "user_image" %>
+      <% end %>
+  </div>
+  <h5 class="user_karma"><%= @user.karma %></h5>
 </div>
-
-<% if @user.image_url %>
-  <%= image_tag @user.image_url %>
-<% end %>
-
-<hr>
-
-  <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
-
-  <% @user.posts.each do |post| %>
-    <%= render 'posts/post_snapshot', :post => post %>
-  <% end %> 
-	
+  <div class="user_posts">
+    <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
+    <% @user.posts.each do |post| %>
+      <%= render 'posts/post_snapshot', :post => post %>
+    <% end %> 
+  </div>
 
 
 
