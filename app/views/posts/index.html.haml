@@ -1,5 +1,4 @@
-= link_to "Submit Post", new_post_path
+
 - @posts.each do |post|
-  %h4
-    =post.post_karma
-    =link_to post.title, post_path(post), :method => :get
+	%div.all_post
+		= render 'posts/post_snapshot', :post => post
