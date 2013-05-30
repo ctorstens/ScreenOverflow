@@ -4,9 +4,20 @@
     <nav>
       <ul>
         <li>
+          <%= link_to notifications_path do %>
+            <span>NewsFeed</span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to posts_path do %>
             <span>Posts</span>
           <% end %>
+        </li>
+        <li>
+          <%= link_to new_post_path do %>
+            <span>Add a Post</span>
+          <% end %>
+        </li>
         <li>
           <%= link_to tags_path do %>
             <span>Tags</span>
@@ -17,6 +28,13 @@
             <span>Users</span>
           <% end %>
         </li>
+        <% if current_user %>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <span>Your Profile</span>
+            <% end %>
+          </li>
+        <% end %>
         <li>
           <% if current_user %>
             <%= link_to signout_path do %>
