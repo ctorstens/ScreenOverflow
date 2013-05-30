@@ -10,4 +10,3 @@
 = form_for @comment, :url => comment_vote_path(@comment), :html => {:class => 'vote_down_comment_form'}, :remote => true do |f|
   = f.hidden_field 'vote', :value => 'dislike'
   = f.submit '⬇', class: "btn-link"
-
