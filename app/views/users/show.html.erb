@@ -6,8 +6,15 @@
       <% else %>
         <%= image_tag 'default_profile.png', :class => "user_image" %>
       <% end %>
+    <div class="karma">
+      <div class="user_karma">
+        <h5 ><%= @user.karma %></h5> 
+      </div>
+      <div class="karma_badge">
+        <%=image_tag 'karma_badge.png' %>
+      </div>
+    </div>
   </div>
-  <h5 class="user_karma"><%= @user.karma %></h5>
 </div>
   <div class="user_posts">
     <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
