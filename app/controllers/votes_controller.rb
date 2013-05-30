@@ -16,8 +16,10 @@ class VotesController < ApplicationController
 
   def vote(object, vote)
     if vote == 'like'
+      object.create_activity(:upvoted)      
       upvote(object)
     else
+      object.create_activity(:downvoted)
       downvote(object)
     end
   end

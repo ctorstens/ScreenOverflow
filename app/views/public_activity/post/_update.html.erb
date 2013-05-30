@@ -8,11 +8,12 @@
   <% end %>
 
 <span class="video_activity">
+  <%= activity.inspect%>
   <%= link_to activity.owner.name, user_path(activity.owner.id) %>
     <% if activity.owner.voted_up_on?(activity.trackable) %>
-      <span> ⬆ voted</span>
+      <span> upupup </span> on <%= link_to activity.trackable.title, post_path(activity.trackable.id) %> <%= time_ago_in_words(activity.created_at) %> ago
     <% else %>  
-      <span> ⬇ voted</span>
+      <span> downdowndown</span> on <%= link_to activity.trackable.title, post_path(activity.trackable.id) %> <%= time_ago_in_words(activity.created_at) %> ago
     <% end %>  
   </div>
   

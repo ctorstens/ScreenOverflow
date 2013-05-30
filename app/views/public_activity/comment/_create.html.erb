@@ -8,6 +8,7 @@
   <% end %>
 
 <span class="video_activity">
+  <%= activity.inspect%>
   <%= link_to activity.owner.name, user_path(activity.owner.id) %> commented "<%=  truncate(activity.trackable.comment, :length => 50) %>" on 
   <%=  link_to activity.trackable.commentable.user.name + '\'s', user_path(activity.trackable.commentable.user.id) %> post
   <%=  link_to activity.trackable.commentable.title, post_path(activity.trackable.commentable.id) %> 
