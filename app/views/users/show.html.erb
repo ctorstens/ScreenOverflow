@@ -1,27 +1,27 @@
-
-<h1><%= @user.name %></h1>
-<h3>Karma: <%= @user.karma %></h3>
-<h3>Post Karma: <%= @user.post_karma %></h3>
-<h3>Comment Karma: <%= @user.comment_karma %></h3>
-
-
-<% if @user.image_url %>
-  <%= image_tag @user.image_url %>
-<% end %>
-
-<hr>
-
-  <h1>Posted <%= pluralize(@user.video_count, 'Video') %> </h1>
-
-  <% @user.posts.each do |post| %>
-    <p><%= link_to post.title, post_path(post) %></p>
-      <% post.tags.each do |tag| %>
-        <%= link_to "#" + tag.name, "/tags/#{tag.name}" %>
+<div class="profile_info">  
+  <div>
+  	<h3><%= @user.name %></h3>
+      <% if @user.image_url %>
+        <%= image_tag @user.image_url, :class => "user_image" %>
+      <% else %>
+        <%= image_tag 'default_profile.png', :class => "user_image" %>
       <% end %>
-
-    <p>posted <%= time_ago_in_words(post.created_at) %> ago</p>
-  <% end %>
-
+    <div class="karma">
+      <div class="user_karma">
+        <h5 ><%= @user.karma %></h5> 
+      </div>
+      <div class="karma_badge">
+        <%=image_tag 'karma_badge.png' %>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="user_posts">
+    <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
+    <% @user.posts.each do |post| %>
+      <%= render 'posts/post_snapshot', :post => post %>
+    <% end %> 
+  </div>
 
 
 
