@@ -1,0 +1,18 @@
+<div class="video_create">
+  <div class="video_info">
+
+ <% if activity.owner.image_url %>    
+    <%= image_tag activity.owner.image_url %>
+  <% else %>  
+    <%= image_tag asset_path 'default_profile.png' %>
+  <% end %>
+
+<span class="video_activity">
+  <%= link_to activity.owner.name, user_path(activity.owner.id) %> ⬆ voted <%= link_to activity.trackable.title, post_path(activity.trackable.id) %> <%= time_ago_in_words(activity.created_at) %> ago
+
+  </div>
+  
+  <div class="video_preview">
+  </div>
+</div>
+  
