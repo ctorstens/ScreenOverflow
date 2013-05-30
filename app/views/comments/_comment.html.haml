@@ -4,13 +4,14 @@
   %dd
     %p.comment_text
       =@comment.comment  
-    %p.comment_user
+    %span.comment_user
       =link_to @comment.user.name, user_path(@comment.user)
-    %p
+    %span.timestamp
       Created 
       =time_ago_in_words(@comment.created_at)
       ago
-    - if current_user.id == @comment.user_id
-      = link_to "Edit", edit_comment_path(@comment)
-      = link_to "Delete", comment_path(@comment), :method => :delete
+    %span.edit_buttons
+      - if current_user.id == @comment.user_id
+        = link_to "EDIT", edit_comment_path(@comment)
+        = link_to "DELETE", comment_path(@comment), :method => :delete
 
