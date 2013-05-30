@@ -5,8 +5,24 @@
 .comment {
 	margin: 10px;
 	width: 80%;
+	white-space: normal;
+
 }
 
 .comment dd {
 	margin-left: 100px;
 }
+
+.comment p {
+	display: inline-block;
+	width: 620px;
+}
+
+.dl-horizontal dd {
+	white-space: normal;
+
+}
+
+.comment_text {
+
+} 
