@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   before_validation :tag_downcase
 
   include PublicActivity::Model
-  tracked :only => [:create], owner: Proc.new{ |controller, model| controller.current_user }
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 
   def video_url=(url)
     parsed_url = parse_video_url(url)
