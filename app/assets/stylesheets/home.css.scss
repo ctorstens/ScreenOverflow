@@ -37,7 +37,7 @@ html {
       outline: 0 none;
   }
   body {
-    a, p, h1, h2, h3, h4 {color: $font_color_basic;}
+    a, p, h1, h2, h3, h4, small {color: $font_color_basic;}
     h1, h2, h3, h4 {font-family: "Dosis", sans-serif;}
     background-color: $background;
     padding: 0;

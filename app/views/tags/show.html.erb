@@ -7,7 +7,7 @@
    <% @posts.each do |post| %> 
      <li>
         <p>
-          <%= link_to post.title, post %>
+          <h3><%= link_to post.title, post %></h3>
           <small>Posted on <%= post.created_at.strftime("%m/%d/%Y") %> by <%= link_to post.user.name, "/users/#{post.user.id}" %></small>
         </p>
       </li>
