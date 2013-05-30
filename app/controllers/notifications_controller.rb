@@ -1,14 +1,6 @@
 class NotificationsController < ApplicationController
 
   def index
-    @activities = PublicActivity::Activity.all.sort_by { |activity| activity }.reverse!
+    @activities = PublicActivity::Activity.order("created_at desc").where(key: ["post.create", "comment.create", "comment.upvoted", "comment.upvoted", "post.upvoted", "post.downvoted"])
   end
-
-  def index_no_layout
-    @activities = PublicActivity::Activity.all.sort_by { |activity| activity }.reverse!
-
-    # Pusher.trigger('newsfeed_channel', 'event_name',{})
-    render :index, :layout => false
-  end
-
 end
