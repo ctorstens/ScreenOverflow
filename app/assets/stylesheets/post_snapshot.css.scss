@@ -110,8 +110,8 @@ div.post_bottom {
 .all_post {
 	display: inline-block;
 	width: 60%;
-	float: right;
-	margin-right: 120px;
+	float: left;
+	margin-left: 115px;
 }
 
 .sort_buttons {
@@ -129,7 +129,7 @@ div.post_bottom {
 	margin: 5px;
 	font: 20px "Dosis", sans-serif;
 	vertical-align: center;
-	text-align: left;
+	text-align: right;
 }
 
 .sort_buttons a:hover {
