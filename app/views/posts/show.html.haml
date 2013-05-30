@@ -1,6 +1,6 @@
 
 .post
-  %h4
+  %h3
     =@post.title
   - the_source = "http://www.youtube.com/embed/" + @post.video_url_code + "?html5=1&vq=hd720"
   %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => the_source, :width => "640"}
