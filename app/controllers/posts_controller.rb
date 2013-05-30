@@ -15,8 +15,7 @@ class PostsController < ApplicationController
 		@post = Post.new(params[:post])
 		@post.user = current_user
 		if @post.save
-			@post.liked_by current_user
-			redirect_to posts_path
+			redirect_to post_path(@post.id)
 		else
 			render :new
 		end
