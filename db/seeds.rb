@@ -11,6 +11,7 @@ end
 users = User.all 
 
 Post.tracked(:owner=>Proc.new{ |controller, post| post.user })
+Comment.tracked(:owner=>Proc.new{ |controller, comment| comment.user })
 
 @new_post = Post.new(
   :user => users.sample,

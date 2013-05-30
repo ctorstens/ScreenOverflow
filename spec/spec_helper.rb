@@ -14,6 +14,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 #rspec STARTSSSS
 
 Post.tracked(:owner=>Proc.new{ |controller, post| post.user })
+Comment.tracked(:owner=>Proc.new{ |controller, comment| comment.user })
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

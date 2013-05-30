@@ -1,5 +1,22 @@
-<div>
-  <strong>This is update</stong>
-<%=activity.inspect%>
+<div class="video_create">
+  <div class="video_info">
 
+ <% if activity.owner.image_url %>    
+    <%= image_tag activity.owner.image_url %>
+  <% else %>  
+    <%= image_tag asset_path 'default_profile.png' %>
+  <% end %>
+
+<span class="video_activity">
+  <%= link_to activity.owner.name, user_path(activity.owner.id) %>
+    <% if activity.owner.voted_up_on?(activity.trackable) %>
+      <span> ⬆ voted</span>
+    <% else %>  
+      <span> ⬇ voted</span>
+    <% end %>  
+  </div>
+  
+  <div class="video_preview">
+  </div>
 </div>
+  
