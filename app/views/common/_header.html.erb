@@ -1,6 +1,7 @@
 <div class='header'>
 
 <% if current_user %>
+
   <div id="squares_bar">
     <nav>
       <ul>
@@ -48,10 +49,15 @@
       </ul>
     </nav>
   </div>
+  <div class="create_post_directly">  
+    <input type="text" id="new_youtube_text" placeholder='e.g. http://youtu.be/CvAbr...'/>  
+  </div>  
   <div class="search_bar">  
     <input type="text" id="typeahead_search" placeholder='Search'/>  
   </div>  
+
 <% else %>
+
   <div id="squares_bar">
     <nav>
       <ul>
@@ -63,6 +69,7 @@
       </ul>
     </nav>
   </div>
+
 <% end %>
 
   
