@@ -2,20 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$background: #E8D5B7;
-$background_header: #E8D5B7;
-$background_square_1: #5bb2fc;
-$background_square_2: #58ebd3;
-$background_square_3: #ffa659;
-$background_square_4: #ff7a85;
+$background: #393939;
+$background_header: #393939;
+$background_square_1: #80BCA3;
+$background_square_2: #F6F7BD;
+$background_square_3: #E6AC27;
+$background_square_4: #BF4D28;
+$background_post_container: #777777;
+$background_search: $background_post_container;
 
 $test_color_peach: #E7CFB3;
 $test_color_blue: #D9E7F0;
 $test_color_purple: #B9A8A1;
 
-$search_background: #eeeff0;
+$font_color_basic: #f1d7ad;
+$font_color_post_element: $background;
+$font_color_search: $background;
 
-
+$search_glow_color: #9b9b9b;
 
 
 
@@ -75,10 +79,16 @@ $search_background: #eeeff0;
 
 
 html {
-  background-color: transparent;
+  background-color: $background;
   margin-left: 0;
   margin-right: 0;
+  textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+      border-color: $search_glow_color;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $search_glow_color;
+      outline: 0 none;
+  }
   body {
+    a, p, h1, h2, h3, h4 {color: $font_color_basic;}
     background-color: $background;
     padding: 0;
     .header {
@@ -160,7 +170,8 @@ html {
           padding: 0 0 0 8px;
           margin: 0 10px 0 0;
           border: 0;
-          background-color: $search_background;
+          background-color: $background_search;
+          border-radius: 0;
         }
       }
     }
@@ -174,6 +185,14 @@ html {
       .post {
         .word_content {
           padding: 10px;
+        }
+      }
+      .post_list_container {
+        background-color: $background_post_container;
+        .post_list_element {
+          a, p {
+            color: $font_color_post_element;
+          }
         }
       }
     }
