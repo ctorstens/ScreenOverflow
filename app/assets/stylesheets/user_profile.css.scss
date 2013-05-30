@@ -1,6 +1,7 @@
 .user_image {
-	width: 120px;
-	height: 120px;
+	margin-top: 5px;
+	width: 145px;
+	height: 145px;
 }
 
 
@@ -23,12 +24,38 @@
 	margin-left: 120px;
 }
 
-.user_karma {
+.user_karma h5{
 	display: inline-block;
-	position: absolute;
-	font-size: 50px;
-	left: 90px;
-	margin-top: 40px;
-
+	margin-top: 50px;
+	margin-left: 55px;
+	font-size: 75px;
+	
 }
+
+.user_karma {
+	position: absolute;
+	z-index: 2000;
+}
+/*
+.user_karma {
+	position: absolute;
+	margin: 0;
+	
+	top: 20px;
+}*/
+
+
+.user_profile {
+line-height: 20px;
+}
+
+.karma_badge {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 220px;
+	left: 20px;
+}
+
+
 
