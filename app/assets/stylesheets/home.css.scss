@@ -148,6 +148,16 @@ html {
           }
         }
       }
+      .comment {
+        background-color: $background_post_container;
+        a, p {
+          color: $font_color_post_element;
+        }
+        .comment_user {
+          font: 20px "Dosis", sans-serif;
+        }
+
+      }
     }
   }
 }
