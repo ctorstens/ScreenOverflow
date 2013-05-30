@@ -2,7 +2,7 @@
   %dt
     = render "/votes/vote_comment", :score => (@comment.likes.size - @comment.dislikes.size)
   %dd
-    %p
+    %p.comment_text
       =@comment.comment  
     %p.comment_user
       =link_to @comment.user.name, user_path(@comment.user)
