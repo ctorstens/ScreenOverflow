@@ -4,6 +4,8 @@ ScreenOverflow::Application.routes.draw do
   resources :posts do
     collection do
       get 'search'
+      get 'by_votes'
+      get 'by_most_viewed'
     end
   end
 
