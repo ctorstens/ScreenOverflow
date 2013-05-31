@@ -8,10 +8,10 @@
       <% end %>
     </div>
     <span class="video_activity">
-      <%= link_to activity.owner.name, user_path(activity.owner.id) %> ⬆ voted 
+      <%= link_to activity.owner.name, user_path(activity.owner.id) %> ⬇ voted 
       <%= link_to truncate(activity.trackable.title, :length => 30), post_path(activity.trackable.id) %> 
       <%= time_ago_in_words(activity.created_at) %> ago
     </span>
-  </div>
+  </div>  
 </div>
   
