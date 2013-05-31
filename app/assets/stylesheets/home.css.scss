@@ -40,6 +40,7 @@ html {
       outline: 0 none;
   }
   body {
+    hr { margin-left: 0; margin-top: 15px;}
     a, p, h1, h2, h3, h4, small {color: $font_color_basic;}
     h1, h2, h3, h4 {font-family: "Dosis", sans-serif;}
     background-color: $background;
@@ -197,6 +198,10 @@ html {
         .comment_user {
           font: 20px "Dosis", sans-serif;
         }
+      }
+      .video_activity {
+        font: 15px "Dosis", sans-serif;
+        color: white;
       }
     }
   }

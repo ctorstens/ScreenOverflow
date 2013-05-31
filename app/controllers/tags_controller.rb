@@ -8,7 +8,7 @@ class TagsController < ApplicationController
   end
 
   def index
-    @tags = Tag.all
+    @tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY name ASC"
   end
 
   def search

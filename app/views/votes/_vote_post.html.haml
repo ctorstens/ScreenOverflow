@@ -1,4 +1,3 @@
-/ # =stylesheet_link_tag "votes", :media => "all"
 .vote
 
   = form_for @post, :url => post_vote_path(@post), :html => {:id => 'vote_up_post_form'}, :remote => true do |f|

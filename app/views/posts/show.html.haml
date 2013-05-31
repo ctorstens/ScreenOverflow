@@ -5,24 +5,25 @@
   - the_source = "http://www.youtube.com/embed/" + @post.video_url_code + "?html5=1&vq=hd720"
   %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => the_source, :width => "640"}
   .word_content
-    %p
+    %p.content
+      = markdown(@post.content)
+      = render :partial => "/votes/vote_post", :locals => {:post => @post, :score => (@post.likes.size - @post.dislikes.size) }
+    %p.user
       Posted 
       =time_ago_in_words(@post.created_at)
       ago by
       = link_to @post.user.name, user_path(@post.user)
-    %p
+    %p.count
       View Count: 
       = @post.impression_count
     - if current_user.id == @post.user.id
-      = link_to "Edit", edit_post_path(@post)
-      = link_to "Delete", post_path(@post), :method => :delete
-    %p
-      = markdown(@post.content)
-      = render :partial => "/votes/vote_post", :locals => {:post => @post, :score => (@post.likes.size - @post.dislikes.size) }
+      = link_to "EDIT", edit_post_path(@post)
+      = link_to "DELETE", post_path(@post), :method => :delete
+
     %hr
       = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
 
-    .comments
-      - @comments.each do |comment|
-        - @comment = comment
-        = render "/comments/comment", :locals => {:comment => @comment, :post => @post}
+.comments
+  - @comments.each do |comment|
+    - @comment = comment
+    = render "/comments/comment", :locals => {:comment => @comment, :post => @post}
