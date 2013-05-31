@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_filter :signed_in_user
 
-
+  # Review: Is this action ever used? Just curious what the use case would be to display all
+  # the comments
   def index
     @comments = Comment.all
   end
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
+    # Review: If you aren't supporting different formats, no need for the respond_to block
     respond_to do |format|
       if @comment.save
         format.html { render :partial => "/comments/comment", :layout=>false, :locals =>{ :comment => @comment} }

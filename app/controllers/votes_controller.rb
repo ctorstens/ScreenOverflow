@@ -1,18 +1,21 @@
 class VotesController < ApplicationController
   before_filter :signed_in_user
 
+  # Review: Why the custom action name and not PostVotesController#create?
   def post_vote
     @post = Post.find(params[:post][:id])
     vote(@post, params[:post][:vote])
     render :json => {:vote_total => (@post.likes.size - @post.dislikes.size)}, :status => :ok
   end
 
+  # Review: Why the custom action name and not CommentVoteController#create?
   def comment_vote
     @comment = Comment.find(params[:id])
     vote(@comment, params[:comment][:vote])
     render :json => {:vote_total => (@comment.likes.size - @comment.dislikes.size), :id => @comment.id}, :status => :ok
   end
 
+  # Review: These methods should be private if they aren't actual actions on the controller
   def vote(object, vote)
     if vote == 'like'
       object.create_activity(:upvoted)      

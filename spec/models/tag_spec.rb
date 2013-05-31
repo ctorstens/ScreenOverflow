@@ -11,7 +11,9 @@ describe Tag do
         create(:post_with_tags).should be_valid
       end
 
-      it "tag_list should have 3 length" do 
+      it "tag_list should have 3 length" do
+        # Review: These types of assertions that depend on the FactoryGirl setup are
+        # opaque. I'd prefer to see the post with tags build up right here in the test.
         post_with_tags.tag_list.length.should eq(3)
       end
     end

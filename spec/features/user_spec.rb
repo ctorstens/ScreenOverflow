@@ -35,6 +35,7 @@ describe 'User', :js => false do
 
 		it "has the tags of the posts" do
 			visit user_path(user)
+			# Review: Why set post.tag_list here?
 			post.tag_list = "hello, kris, joe"
 			page.should have_content(user.posts.first.tags.first)
 		end

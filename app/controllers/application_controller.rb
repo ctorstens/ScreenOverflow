@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   	session[:user_id] = user.id 
   end
 
+  # Review: Isn't this code also present in the Post model?
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
   end
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::Base
   def signed_in?
     !current_user.nil?
   end
-
+  
   def signed_in_user
     unless signed_in?
       redirect_to root_url, notice: "Please sign in."

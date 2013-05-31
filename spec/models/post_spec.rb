@@ -47,6 +47,8 @@ describe Post do
 		end
 	end
 
+	# Review: Nice collection of tests here. The describe method's description doesn't
+	# add any value though....
 	describe 'methods' do
 		
 		context "parse youtube url to grab the unique code" do
@@ -101,6 +103,7 @@ describe Post do
   describe  "post with comment" do
     context "with valid comments" do
       it "should create new comment" do
+      	# Review: Where's the assertion that this post has any comments?
         create(:post_with_comments).should be_valid
       end
     end

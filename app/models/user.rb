@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def post_karma
+    # Review: Check out the .sum method on array (part of Rails)
     object_karma(self.posts).inject(:+)
   end
 
@@ -39,6 +40,9 @@ class User < ActiveRecord::Base
     object_karma(self.comments).inject(:+)
   end
 
+  # Review: There's some magic happening in this method. Any reason you can't add a #karam method
+  # on the objects you know you're going to compute the karma for? Either way, this probably
+  # doesn't belong on the User model.
   def object_karma(objects)    
     if objects.empty?
       objects_karma = [0]

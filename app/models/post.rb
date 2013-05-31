@@ -27,6 +27,8 @@ class Post < ActiveRecord::Base
     self.video_url_time = parsed_url[:time]
   end
 
+  # Review: There's a lot of logic in this model related to video URLs.
+  # Why not create a new (plain Ruby) class to hold all of this logic?
   def video_url
     return "http://www.youtube.com/embed/" + self.video_url_code + "?html5=1&vq=hd720" if self.video_domain == 'youtube'
   end
@@ -52,7 +54,7 @@ class Post < ActiveRecord::Base
     !!(url =~ /(youtube.com|youtu.be)/)
   end
 
-
+  # Review: I'd rename this to downcase_tags
   def tag_downcase
     self.tag_list = tag_list.map! { |tag| tag.downcase }.uniq
   end
@@ -65,6 +67,8 @@ class Post < ActiveRecord::Base
     self.all.sort { |a,b| a.post_karma <=> b.post_karma }.reverse
   end
   
+  # Review: Another thing that doesn't seem to belong here. Remember, your classes should have
+  # a single responsibility.
   def yt_client
     @yt_client ||= YouTubeIt::Client.new(:username => ENV['GOOGLE_USERNAME'] , :password => ENV['GOOGLE_PASSWORD'], :dev_key => ENV['GOOGLE_DEV_KEY'])
   end

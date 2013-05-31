@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 	impressionist :actions=>[:show,:index]
 
 	def index
+		# Review: Move this query into a model. Why are are you running these raw queries? Y U NO ActiveRecord?
 		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 10;"
 		@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
 	end
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comments = @post.comments_by_karma
 		@comment = Comment.new
+		# Review: What's this next line for?
 		impressionist(@post, message:"wtf is a widget?")
 	end
 
