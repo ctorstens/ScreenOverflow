@@ -12,9 +12,9 @@
         <%= link_to "#" + tag.name, "/tags/#{tag.name}" %>
       <% end %>
       </div>
-    <div class="view_count">
+<!--     <div class="view_count">
       <p> Views: <%= post.impressions_count %></a>
-    </div>
+    </div> -->
     <div class="post_bottom">
      <% if post.user %>
         <span class="user_name"><%= link_to post.user.name, user_path(post.user) %></span>
