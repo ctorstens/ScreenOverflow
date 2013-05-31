@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	impressionist :actions=>[:show,:index]
 
 	def index
-		@posts = Post.posts_by_karma
+		@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
 	end
 
 	def new
@@ -15,8 +15,7 @@ class PostsController < ApplicationController
 		@post = Post.new(params[:post])
 		@post.user = current_user
 		if @post.save
-			@post.liked_by current_user
-			redirect_to posts_path
+			redirect_to post_path(@post.id)
 		else
 			render :new
 		end
@@ -61,6 +60,16 @@ class PostsController < ApplicationController
 		description = video.description
 		tag = video.categories.last.label
 		render :json=> {title: title, description: description, tag: tag}
+	end
+
+	def by_votes
+		@posts = Post.unscoped.order('cached_votes_score DESC').paginate(:page => params[:page], :per_page => 10)
+		render :index
+	end
+
+	def by_most_viewed
+		@posts = Post.unscoped.order('impressions_count DESC').paginate(:page => params[:page], :per_page => 10)
+		render :index
 	end
 
 end

@@ -5,7 +5,7 @@
     </dt>
     <dd class="post_snapshot">
     <div class="title_container">  
-      <h2><%= link_to post.title, post_path(post), :class => "post_title" %></h2>
+      <%= link_to post.title, post_path(post), :class => "post_title" %>
     </div>	
       <span class="post_img"><%= link_to(image_tag(post.video_url_thumbnail), post_path(post)) %></span>
       <div class="post_tags"><% post.tags.each do |tag| %>

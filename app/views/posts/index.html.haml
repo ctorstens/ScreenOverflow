@@ -1,4 +1,10 @@
-
 - @posts.each do |post|
-	%div.all_post
-		= render 'posts/post_snapshot', :post => post
+  %div.all_post
+    = render 'posts/post_snapshot', :post => post
+.sort_buttons
+  = link_to 'Newest', posts_path, id: 'default'
+  = link_to 'Popular', by_votes_posts_path, id: 'votes'
+  = link_to 'Views', by_most_viewed_posts_path, id: 'votes'
+%p.pagination
+  = will_paginate @posts
+
