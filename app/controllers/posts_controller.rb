@@ -60,7 +60,7 @@ class PostsController < ApplicationController
 		title = video.title
 		description = video.description
 		tag = video.categories.last.label
-		render :json=> {title: title, description: description, tag: tag}
+		render :json=> {title: title, description: description, tag: tag, preview: params[:youtube_id]}
 	end
 
 	def by_votes
