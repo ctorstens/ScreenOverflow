@@ -1,8 +1,7 @@
-<span class="tag-questions">
-  <h3>
-    <%= @tag.name.capitalize %>
-  </h3>
-  
+<h1> <%= @tag.name.capitalize %> </h1>
+
+
+<span class="tag-questions">  
   <ol>
    <% @posts.each do |post| %> 
      <li>
