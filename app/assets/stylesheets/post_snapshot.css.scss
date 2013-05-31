@@ -8,11 +8,6 @@ dt.karma {
 	padding-top: 5px;
 }
 
-// dt.karma:hover {
-// 	transform:scale(1.2, 1.2);
-// 	-ms-transform:scale(1.2, 1.2);
-// 	-webkit-transform:scale(1.2, 1.2);
-// }
 
 dd a.post_title{
 	font-weight: bold;
@@ -111,3 +106,43 @@ div.post_bottom {
 	right: 40px;
 	top: -8px;
 }
+
+.all_post {
+	display: inline-block;
+	width: 60%;
+	float: left;
+	margin-left: 115px;
+}
+
+.sort_buttons {
+	height: 200px;
+	margin-top: 50px;
+	width: 50px;
+	position: fixed;
+}
+
+.sort_buttons a {
+	display: inline-block;
+	padding: 5px 5px;
+	width: 70px;
+	height: 30px;
+	margin: 5px;
+	font: 20px "Dosis", sans-serif;
+	vertical-align: center;
+	text-align: right;
+}
+
+.sort_buttons a:hover {
+  background-color: #B9A8A1;
+  text-decoration: none;
+  font: 20px "Dosis", sans-serif;  
+}
+
+.pagination {
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 450px;
+	font: 15px "Dosis", sans-serif;
+}
+

@@ -1,7 +1,6 @@
 class NotificationsController < ApplicationController
 
   def index
-    @activities = PublicActivity::Activity.all
+    @activities = PublicActivity::Activity.order("created_at desc").where(key: ["post.create", "comment.create", "comment.upvoted", "comment.upvoted", "post.upvoted", "post.downvoted"])
   end
-
 end

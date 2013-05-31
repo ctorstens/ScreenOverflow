@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        @comment.liked_by current_user
         format.html { render :partial => "/comments/comment", :layout=>false, :locals =>{ :comment => @comment} }
       else
         flash[:notice] = "Not a valid Comment."  

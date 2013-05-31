@@ -8,8 +8,8 @@
   <% end %>
 
 <span class="video_activity">
-  <%= link_to activity.owner.name, user_path(activity.owner.id) %>
-      <span> edited </span> <%= link_to activity.trackable.title, post_path(activity.trackable.id) %> <%= time_ago_in_words(activity.created_at) %> ago
+  <%= link_to activity.owner.name, user_path(activity.owner.id) %> ⬇ voted <%= link_to activity.trackable.title, post_path(activity.trackable.id) %> <%= time_ago_in_words(activity.created_at) %> ago
+
   </div>
   
   <div class="video_preview">

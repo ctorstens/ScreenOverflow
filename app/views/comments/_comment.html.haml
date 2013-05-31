@@ -1,13 +1,17 @@
-%li.comment{ :class => "comment", :id => @comment.id}
-  = render "/votes/vote_comment", :score => (@comment.likes.size - @comment.dislikes.size)
-  %p
-    =link_to @comment.user.name, user_path(@comment.user)
-  %p
-    Created 
-    =time_ago_in_words(@comment.created_at)
-    ago
-  - if current_user.id == @comment.user_id
-    = link_to "Edit", edit_comment_path(@comment)
-    = link_to "Delete", comment_path(@comment), :method => :delete
-  %p
-    =@comment.comment
+.comment{ :class => "comment dl-horizontal", :id => @comment.id}
+  %dt
+    = render "/votes/vote_comment", :score => (@comment.likes.size - @comment.dislikes.size)
+  %dd
+    %p.comment_text
+      =@comment.comment  
+    %span.comment_user
+      =link_to @comment.user.name, user_path(@comment.user)
+    %span.timestamp
+      Created 
+      =time_ago_in_words(@comment.created_at)
+      ago
+    %span.edit_buttons
+      - if current_user.id == @comment.user_id
+        = link_to "EDIT", edit_comment_path(@comment)
+        = link_to "DELETE", comment_path(@comment), :method => :delete
+
