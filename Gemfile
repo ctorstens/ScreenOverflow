@@ -12,7 +12,6 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'impressionist'
 gem 'public_activity'
-gem 'pusher'
 gem 'will_paginate', '~> 3.0'
 
 group :assets do

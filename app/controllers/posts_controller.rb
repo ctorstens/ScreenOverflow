@@ -12,13 +12,29 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		p params
 		@post = Post.new(params[:post])
 		@post.user = current_user
+
+		# respond_to do |format|
+		# 	if @post.save
+		# 		# redirect_to post_path(@post.id)
+		# 		foramt.html { redirect_to post_path(@post.id) }
+		# 		format.json { status: 'lkadhsflkhasdf' }
+		# 	else
+		# 		# render :new
+		# 		format.html { render :action => "new" }
+		# 		format.js
+		# 	end
+		# end
+
 		if @post.save
-			redirect_to post_path(@post.id)
+			render :json => {status: 'complete', url: edit_post_path(@post)}
 		else
-			render :new
+			render :json => {status: 'fail', url: '/stuff2'}
 		end
+
+		
 	end
 
 	def show
@@ -72,4 +88,4 @@ class PostsController < ApplicationController
 		render :index
 	end
 
-end
+	end
