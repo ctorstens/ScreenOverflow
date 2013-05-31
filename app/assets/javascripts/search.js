@@ -1,25 +1,31 @@
+function clear_typeahead() {
+  $('#typeahead_search')
+    .typeahead('destroy')
+    .typeahead({
+      prefetch: '/users/search',
+      prefetch: '/posts/search',
+      prefetch: '/tags/search',
+    });
+};
 
 $(document).ready(function () {
   $('#typeahead_search').typeahead([
     {
-      name: 'search-users',
-      ttl_ms: 1000,
+      // name: 'search-users',
       prefetch: '/users/search',
       header: "<h3 class='category_name'>Users</h3>",
       limit: 3
     },
 
     {
-      name: 'search-posts',
-      ttl_ms: 1000,
+      // name: 'search-posts',
       prefetch: '/posts/search',
       header: "<h3 class='category_name'>Posts</h3>",
       limit: 3
     },
 
     {
-      name: 'search-tags',
-      ttl_ms: 1000,
+      // name: 'search-tags',
       prefetch: '/tags/search',
       header: "<h3 class='category_name'>Tags</h3>",
       limit: 3
@@ -32,5 +38,8 @@ $(document).ready(function () {
     window.location = obj.url;
   });
 
+  window.setInterval(function(){
+    clear_typeahead();
+  }, 15 * 1e3); // Set search db reset to q 15 sec
 
 });
