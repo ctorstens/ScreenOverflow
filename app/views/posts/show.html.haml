@@ -3,7 +3,7 @@
   %h3
     =@post.title
   - the_source = "http://www.youtube.com/embed/" + @post.video_url_code + "?html5=1&vq=hd720"
-  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => the_source, :width => "640"}
+  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "408", :src => the_source, :width => "725"}
   .word_content
     %p.content
       = markdown(@post.content)
@@ -17,8 +17,8 @@
       View Count: 
       = @post.impression_count
     - if current_user.id == @post.user.id
-      = link_to "EDIT", edit_post_path(@post)
-      = link_to "DELETE", post_path(@post), :method => :delete
+      = link_to "Edit", edit_post_path(@post)
+      = link_to "Delete", post_path(@post), :method => :delete
 
     %hr
       = render :partial => 'comments/comment_form', :locals => {:post => @post, :comment => @comment}
