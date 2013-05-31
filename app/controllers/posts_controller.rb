@@ -64,11 +64,13 @@ class PostsController < ApplicationController
 	end
 
 	def by_votes
+		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 10;"
 		@posts = Post.unscoped.order('cached_votes_score DESC').paginate(:page => params[:page], :per_page => 10)
 		render :index
 	end
 
 	def by_most_viewed
+		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 10;"
 		@posts = Post.unscoped.order('impressions_count DESC').paginate(:page => params[:page], :per_page => 10)
 		render :index
 	end
