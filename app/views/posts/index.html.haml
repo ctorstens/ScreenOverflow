@@ -5,6 +5,10 @@
   = link_to 'Newest', posts_path, id: 'default'
   = link_to 'Popular', by_votes_posts_path, id: 'votes'
   = link_to 'Views', by_most_viewed_posts_path, id: 'votes'
+  .sort_tags
+    %h3
+      Top 10 Tags
+    = render :partial => 'tags/show_tags', :locals => {:tags => @tags}
 %p.pagination
   = will_paginate @posts
 
