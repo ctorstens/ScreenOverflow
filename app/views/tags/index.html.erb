@@ -1,7 +1,12 @@
-<ol>
+<h1> Tags </h1>
+<hr>
+
+<table>
+  <th class="count_title">Count</th>
   <% @tags.each do |tag| %>
-    <li>
-      <p><%= link_to tag.name, "/tags/#{tag.name}"  %></p>
-    </li>
+      <tr>
+        <td class="tag_count"><%= tag["count"]%></td>
+        <td><%= link_to "# "+tag["name"].capitalize, "/tags/#{tag["name"]}"  %>  </td>
+      </tr>
   <% end %>
-<ol>
+<table>

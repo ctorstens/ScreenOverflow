@@ -111,25 +111,27 @@ div.post_bottom {
 	display: inline-block;
 	width: 60%;
 	float: left;
-	margin-left: 115px;
+	margin-left: 220px;
 }
 
 .sort_buttons {
 	height: 200px;
-	margin-top: 50px;
+	margin-top: 60px;
 	width: 50px;
 	position: fixed;
 }
 
 .sort_buttons a {
 	display: inline-block;
-	padding: 5px 5px;
-	width: 70px;
+	padding-top: 0px;
+	padding-left: 5px;
+	padding_bottom: 10px;
+	width: 200px;
 	height: 30px;
 	margin: 5px;
 	font: 20px "Dosis", sans-serif;
 	vertical-align: center;
-	text-align: right;
+	text-align: left;
 }
 
 .sort_buttons a:hover {
@@ -137,6 +139,32 @@ div.post_bottom {
   text-decoration: none;
   font: 20px "Dosis", sans-serif;  
 }
+
+.sort_buttons .sort_tags {
+	margin-top: 65px;
+	margin-left: 10px;
+	width: 200px;
+}
+
+.sort_buttons .sort_tags h3 {
+	color: white;
+}
+
+.sort_buttons .sort_tags a {
+	color: white;
+	font-size: 16px;
+	margin-bottom: 5px;
+	margin-left: 0;
+	width: 200px;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding_bottom: 0px;
+}
+
+.sort_buttons .sort_tags p {
+	margin: 0px;
+}
+
 
 .pagination {
 	display: block;
@@ -146,3 +174,6 @@ div.post_bottom {
 	font: 15px "Dosis", sans-serif;
 }
 
+.word_content p {
+	display: inline-block;
+}
