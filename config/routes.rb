@@ -23,7 +23,7 @@ ScreenOverflow::Application.routes.draw do
 
   resources :comments
 
-  resources :notifications
+  resources :newsfeeds
 
   match "/posts/create", to: 'posts#create'
 
