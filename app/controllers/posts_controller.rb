@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 	impressionist :actions=>[:show,:index]
 
 	def index
+		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 10;"
 		@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
 	end
 
