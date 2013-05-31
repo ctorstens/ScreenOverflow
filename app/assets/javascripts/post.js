@@ -8,8 +8,15 @@ $(document).ready(function() {
         $('#post_title').val(data.title);
         $('#post_content').val(data.description);
         $('#post_tag_list').val(data.tag);
+        $('.youtube-preview').css('display','none');
+        $('.youtube-preview').html('<iframe allowfullscreen="" frameborder="0" height="239" src="http://www.youtube.com/embed/'+ data.preview +'?html5=1&amp;vq=hd720" width="425"></iframe>');
+
+$('.youtube-preview').fadeIn('slow');
+
       });
     };
   });
 
 });
+
+
