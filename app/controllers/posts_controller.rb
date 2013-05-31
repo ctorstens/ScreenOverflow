@@ -12,19 +12,31 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		# p params['title']
+		puts "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+		puts "PARAMS"
 		p params
-		@post = Post.new(params[:post])
+		@post = Post.new(params)
+		puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+		puts "POST"
+		p @post
+		puts "USER"
+		puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+
 		@post.user = current_user
+		p @post
 
 		# respond_to do |format|
 		# 	if @post.save
 		# 		# redirect_to post_path(@post.id)
-		# 		foramt.html { redirect_to post_path(@post.id) }
-		# 		format.json { status: 'lkadhsflkhasdf' }
+		# 		# foramt.html { redirect_to post_path(@post.id) }
+		# 		# format.json { status: 'lkadhsflkhasdf' }
+		# 		# render :json => {status: 'complete', url: edit_post_path(@post)}
 		# 	else
 		# 		# render :new
-		# 		format.html { render :action => "new" }
-		# 		format.js
+		# 		# format.html { render :action => "new" }
+		# 		# format.js
+		# 		# render :json => {status: 'fail', url: '/stuff2'}
 		# 	end
 		# end
 
