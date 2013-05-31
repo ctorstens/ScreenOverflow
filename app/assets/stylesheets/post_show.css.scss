@@ -38,6 +38,8 @@ input.btn-link:hover {
 	background-color: #c6c6a4;
 	width: 425px;
 	padding-left: 40px;
+	overflow: auto;
+	float: left;
 }
 
 .youtube-input-form input {
@@ -60,4 +62,8 @@ input.btn-link:hover {
 
 .youtube-input-form .post_button {
 	width: 200px;
+}
+
+.youtube-preview {
+	float: right;
 }

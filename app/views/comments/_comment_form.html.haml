@@ -1,6 +1,6 @@
-= form_for @comment, :remote => true do |f|
-  = f.hidden_field :commentable_id, :value => @post.id
-  = f.hidden_field :commentable_type, :value => "Post"
-  = f.label :comment
-  = f.text_field :comment, :required => true
-  = f.submit 'Submit Post'
+.comment-input-form
+  = form_for @comment, :remote => true do |f|
+    = f.hidden_field :commentable_id, :value => @post.id
+    = f.hidden_field :commentable_type, :value => "Post"
+    = f.text_area :comment, :placeholder => "Comment", :required => true
+    = f.submit 'Submit Comment', :class => "btn post_button"
