@@ -36,7 +36,7 @@ input.btn-link:hover {
 .youtube-input-form {
 	padding: 10px;
 	background-color: #c6c6a4;
-	width: 450px;
+	width: 425px;
 	padding-left: 40px;
 }
 
@@ -49,14 +49,15 @@ input.btn-link:hover {
 	font-size: 15px;
 }
 
-.youtube-input-form textarea {
-	
-	margin: 10px 15px 0 0;
-	line-height: 10px;
-	width: 352px;
+.youtube-input-form textarea#post_content {
+	width: 335px;
+	height: 200px;
+	padding: 15px;
+	margin-top: 12px;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #838383;	
 }
 
 .youtube-input-form .post_button {
-
 	width: 200px;
 }
