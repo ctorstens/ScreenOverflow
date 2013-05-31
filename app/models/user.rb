@@ -46,4 +46,8 @@ class User < ActiveRecord::Base
       objects_karma = objects.map{|object| object = (object.likes.size - object.dislikes.size)}
     end
   end
+
+  def self.users_by_karma
+    self.all.sort { |a,b| a.karma <=> b.karma }.reverse
+  end
 end
