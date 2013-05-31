@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     @tags = Tag.all.map do |t|
       {
         :value => t.name,
-        :url => "/tags" + t.name
+        :url => "/tags/" + t.name
       }
     end
     render :json => @tags
