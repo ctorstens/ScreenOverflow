@@ -32,3 +32,31 @@ input.btn-link:hover {
 	font-size: 20px;
 
 }
+
+.youtube-input-form {
+	padding: 10px;
+	background-color: #c6c6a4;
+	width: 450px;
+	padding-left: 40px;
+}
+
+.youtube-input-form input {
+	display: block;
+	padding: 10px 15px 12px 15px;
+	width: 335px;
+	color: #838383;
+	margin: 10px 0 0 0;
+	font-size: 15px;
+}
+
+.youtube-input-form textarea {
+	
+	margin: 10px 15px 0 0;
+	line-height: 10px;
+	width: 352px;
+}
+
+.youtube-input-form .post_button {
+
+	width: 200px;
+}
