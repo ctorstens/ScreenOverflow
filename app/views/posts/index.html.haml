@@ -7,7 +7,7 @@
   = link_to 'Views', by_most_viewed_posts_path, id: 'votes'
   .sort_tags
     %h3
-      Top 10 Tags
+      Top Tags
     = render :partial => 'tags/show_tags', :locals => {:tags => @tags}
 %p.pagination
   = will_paginate @posts
