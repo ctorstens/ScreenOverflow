@@ -1,0 +1,32 @@
+html {
+  body {
+    .container {
+      .left_sidebar {
+        position: fixed;
+        a {
+          color: #839C85;
+          font-size: 16px;
+          margin-bottom: 5px;
+          margin-left: 0;
+          padding-top: 10px;
+          padding-left: 5px;
+          padding_bottom: 0px;
+          font: 20px "Dosis", sans-serif;
+          &:hover {
+            color: #80BCA3;
+            text-decoration: none;
+          }
+        }
+        // .sort_section {}
+        // .tag_section {}
+      }
+      .pagination {
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 450px;
+        font: 15px "Dosis", sans-serif;
+      }
+    }
+  }
+}
