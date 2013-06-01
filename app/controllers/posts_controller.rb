@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
 	def index
 		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 7;"
-		@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
+		@posts = Post.unscoped.order('cached_votes_score DESC').paginate(:page => params[:page], :per_page => 10)
+		render :index
 	end
 
 	def new
@@ -62,6 +63,12 @@ class PostsController < ApplicationController
 		description = video.description
 		tag = video.categories.last.label
 		render :json=> {title: title, description: description, tag: tag, preview: params[:youtube_id]}
+	end
+
+	def by_most_recent
+		@tags = ActiveRecord::Base.connection.execute "SELECT tags.name, count(*) as count  FROM tags INNER JOIN taggings on tags.id = taggings.tag_id GROUP BY 1 ORDER BY count DESC LIMIT 7;"
+		@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
+		render :index
 	end
 
 	def by_votes
