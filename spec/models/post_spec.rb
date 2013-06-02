@@ -47,6 +47,8 @@ describe Post do
 		end
 	end
 
+  it "should delete associated votes and comments if the post is deleted"
+
 	describe 'methods' do
 		
 		context "parse youtube url to grab the unique code" do
