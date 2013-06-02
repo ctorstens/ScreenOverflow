@@ -6,7 +6,7 @@
         - the_tags += ' box'
         %div{:class => the_tags}
           %h2.box-title
-            = post.title
+            = link_to post.title, post_path(post)
           .box-text
             = truncate(post.content, :length => 140)
 
@@ -33,8 +33,11 @@
     %h3
       Top Tags
       %ul
+        %li
+          %a{"data-filter" => "*", :href => ""} All
         - @tags.each do |tag|
           %li
-            = link_to tag["name"], "/tags/#{tag["name"]}"
+            %a{"data-filter" => "." + tag["name"], :href => "/tags/" + tag["name"]}
+              = tag["name"]
 / %p.pagination
 /   = will_paginate @posts

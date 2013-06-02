@@ -29,7 +29,7 @@ $('.youtube-preview').fadeIn('slow');
     }
   });
 
-  $('.sort_section a').click(function(){
+  $('.tag_section a').click(function(){
     var selector = $(this).attr('data-filter');
     $container.isotope({
       filter: selector,
@@ -41,7 +41,7 @@ $('.youtube-preview').fadeIn('slow');
     });
     return false;
   });
-  
+
 });
 
 
