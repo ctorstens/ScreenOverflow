@@ -38,8 +38,14 @@ $(document).ready(function () {
     window.location = obj.url;
   });
 
+  // Set search db reset to q hour
   window.setInterval(function(){
     clear_typeahead();
-  }, 15 * 1e3); // Set search db reset to q 15 sec
+  }, 60 * 60 * 1e3);
+
+  // reset search with comment/post submission
+  $('.btn').on('click', function() {
+    clear_typeahead();
+  });
 
 });
