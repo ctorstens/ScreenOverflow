@@ -17,6 +17,31 @@ $('.youtube-preview').fadeIn('slow');
     };
   });
 
+
+  var $container = $('#iso_content');
+
+  $container.isotope({
+    filter: '*',
+    animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false,
+    }
+  });
+
+  $('.sort_section a').click(function(){
+    var selector = $(this).attr('data-filter');
+    $container.isotope({
+      filter: selector,
+      animationOptions: {
+        duration: 750,
+        easing: 'linear',
+        queue: false,
+      }
+    });
+    return false;
+  });
+  
 });
 
 

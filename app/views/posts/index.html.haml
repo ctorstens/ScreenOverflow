@@ -1,7 +1,15 @@
 .list_of_posts
-  - @posts.each do |post|
-    %div.all_post
-      = render 'posts/post_snapshot', :post => post
+  %div.all_posts
+    #iso_content
+      - @posts.each do |post|
+        - the_tags = post.tags.join(" ")
+        - the_tags += ' box'
+        %div{:class => the_tags}
+          %h2.box-title
+            = post.title
+          .box-text
+            = truncate(post.content, :length => 140)
+
 .left_sidebar
   .sort_section
     %h3
@@ -13,6 +21,14 @@
           = link_to 'Votes', by_votes_posts_path
         %li
           = link_to 'Views', by_most_viewed_posts_path
+        %li
+          %a{"data-filter" => "*", :href => ""} All
+        %li
+          %a{"data-filter" => ".cat1", :href => ""} Category 1
+        %li
+          %a{"data-filter" => ".cat2", :href => ""} Category 2
+        %li
+          %a{"data-filter" => ".cat3", :href => ""} Category 3
   .tag_section
     %h3
       Top Tags
@@ -20,5 +36,5 @@
         - @tags.each do |tag|
           %li
             = link_to tag["name"], "/tags/#{tag["name"]}"
-%p.pagination
-  = will_paginate @posts
+/ %p.pagination
+/   = will_paginate @posts
