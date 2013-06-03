@@ -1,0 +1,24 @@
+
+
+%dl.dl-horizontal.post_list_container
+  .post_list_element
+    %dt.karma
+      = post.post_karma
+    %dd.post_snapshot
+      .title_container
+        = link_to post.title, post_path(post), :class => 'post_title'
+      %span.post_img
+        = link_to(image_tag(post.video_url_thumbnail), post_path(post))
+      .post_tags
+        - post.tags.each do |tag|
+          = link_to "#" + tag.name, "/tags/#{tag.name}"
+      .view_count 
+        %p 
+          Views
+          = post.impressions_count
+      .post_bottom
+        - if post.user
+          %span.user_name
+            = link_to post.user.name, user_path(post.user)
+        %span.post_time
+          = post.created_at.strftime("%b %d, %Y")
