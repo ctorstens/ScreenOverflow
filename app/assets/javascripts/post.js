@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-  $('#post_video_url').on('keyup',function(e){ 
-      var youtube = $(this).val(); 
+  $('#post_video_url').on('keyup',function(e){
+      var youtube = $(this).val();
       if (/http:\/\/www\.youtube\.com\/(.+)|https:\/\/www\.youtube\.com\/(.+)|http:\/\/youtu\.be\/(.+)|https:\/\/youtu\.be\/(.+)/.test(youtube)){
         var youtube = youtube.match(/(embed\/|v=|\.be\/)(.{11})/)[2];
         $.get("/youtube_url?youtube_id="+ youtube, function(data){
@@ -40,6 +40,12 @@ $('.youtube-preview').fadeIn('slow');
       }
     });
     return false;
+  });
+
+  $('.isotope-item').hover(function(e) {
+      $(this).addClass("hover_me");
+    }, function(){
+      $(this).removeClass("hover_me");
   });
 
 });

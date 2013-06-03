@@ -11,8 +11,12 @@ $background_square_7: #BF4D28;
 $background_post_container: $background_square_2;
 $background_search: $background_post_container;
 
-$font_color_basic: #c1ad8b;
-$font_color_basic_hover: #f1d7ad; 
+$font_color_basic: #839c85;
+$font_color_basic_hover: #80bca3;
+
+$font_color_header: #c1ad8b;
+$font_color_header_hover: #f1d7ad;
+
 $font_color_post_element: $background;
 $font_color_search: $background;
 
@@ -25,7 +29,7 @@ html {
   input {
     color: $font_color_basic;
   }
-  textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+  textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
       border-color: $search_glow_color;
       // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $search_glow_color;
       box-shadow: 0 0px 0px rgba(0, 0, 0, 0.075) inset, 0 0 0px $search_glow_color;
@@ -33,9 +37,10 @@ html {
   }
   body {
     hr { margin-left: 0; margin-top: 15px;}
-    a, p, h1, h2, h3, h4, small {color: $font_color_basic;}
+    h1, h2, h3, h4 {color: $font_color_header;}
+    a, p, small {color: $font_color_basic;}
     a:hover {
-      color: $font_color_basic_hover;
+      color: $font_color_header_hover;
       text-decoration: none;
     }
     h1, h2, h3, h4 {font-family: "Dosis", sans-serif;}
@@ -55,6 +60,20 @@ html {
               background-color: #4c4c4c;
               border: 0;
               margin: 0 10px 10px 0;
+              h2, a {
+                color: $font_color_header;
+                text-decoration: none;
+              }
+            }
+            .hover_me {
+              background-color: #5b5b5b;
+              h2, a {
+                color: $font_color_header_hover;
+                text-decoration: none;
+              }
+              p {
+                color: $font_color_basic_hover;
+              }
             }
           }
         }

@@ -5,9 +5,9 @@
         - the_tags = post.tags.join(" ")
         - the_tags += ' box'
         %div{:class => the_tags}
-          %h2.box-title
+          %h3.box-title
             = link_to post.title, post_path(post)
-          .box-text
+          %p.box-text
             = truncate(post.content, :length => 140)
 
 .left_sidebar
