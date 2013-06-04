@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  attr_accessible :name, :email, :username, :image_url
+  attr_accessible :name, :email, :username, :image_url, :first_name, :last_name
 
   acts_as_voter
 
