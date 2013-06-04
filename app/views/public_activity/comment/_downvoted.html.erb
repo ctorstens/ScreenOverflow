@@ -1,0 +1,19 @@
+<div class="video_create">
+  <div class="video_info">
+    <div class="video_profile">
+      <% if activity.owner.image_url %>    
+        <%= image_tag activity.owner.image_url %>
+      <% else %>  
+        <%= image_tag asset_path 'default_profile.png' %>
+      <% end %>
+    </div>
+    <span class="video_activity">
+      <%= link_to activity.owner.name, user_path(activity.owner.id) %> ⬇ voted 
+      <%= link_to activity.trackable.commentable.user.name + '\'s', user_path(activity.trackable.commentable.user.id) %> comment on "
+      <%= truncate(activity.trackable.comment, :length => 30) %>" on
+      <%= link_to truncate(activity.trackable.commentable.title, :length => 30), post_path(activity.trackable.commentable.id) %> 
+      <%= time_ago_in_words(activity.created_at) %> ago
+    </span>
+  </div>
+</div>
+  

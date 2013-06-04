@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ScreenOverflow::Application.config.secret_token = '1785f668c3ef4c1125307555149144d26769131e3d0191188420816967605d56785cd306463dcdbd43eba6be1d35309381b0513d0c0dbb77e8df5b6f3b85261a'
+ScreenOverflow::Application.config.secret_token = 'c1373da5caed232109242eb00cf2ecd771d58ba25a84bf5f1cc695a349c03af86ac84a2bbf44eeef93be62c3720cc14df80c71d35a6ef2456b76bfa23fcd2e18'

@@ -1,0 +1,11 @@
+<h1> News Feed </h1>
+
+<div class="newsfeed_container">
+  <% @activities.each do |activity| %>
+    <% if activity.key and activity.trackable %>
+      <div class="activity">
+        <%= render_activity(activity) %>
+      </div>  
+    <% end %> 
+  <% end %>
+</div>

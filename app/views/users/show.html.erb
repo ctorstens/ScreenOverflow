@@ -1,0 +1,28 @@
+<div class="profile_info">  
+  <div>
+  	<h3 class="user_profile_name"><%= @user.name %></h3>
+      <% if @user.image_url %>
+        <%= image_tag @user.image_url, :class => "user_image" %>
+      <% else %>
+        <%= image_tag 'default_profile.png', :class => "user_image" %>
+      <% end %>
+    <div class="karma">
+      <div class="user_karma">
+        <h5><%= @user.karma %></h5> 
+      </div>
+      <div class="karma_badge">
+        <%=image_tag 'karma_badge.png' %>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="user_posts">
+    <h3 class="num_of_vids">Posted <%= pluralize(@user.video_count, 'Video') %> </h3>
+    <% @user.posts.each do |post| %>
+      <%= render 'posts/post_snapshot', :post => post %>
+    <% end %> 
+  </div>
+
+
+
+

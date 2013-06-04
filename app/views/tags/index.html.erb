@@ -1,0 +1,12 @@
+<h1> Tags </h1>
+
+
+<table>
+  <th class="count_title">Count</th>
+  <% @tags.each do |tag| %>
+      <tr>
+        <td class="tag_count"><%= tag["count"]%></td>
+        <td><%= link_to "# "+tag["name"].capitalize, "/tags/#{tag["name"]}"  %>  </td>
+      </tr>
+  <% end %>
+<table>

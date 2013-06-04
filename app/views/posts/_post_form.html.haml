@@ -1,0 +1,10 @@
+.youtube-input-form
+  = form_for @post do |f|
+    = f.text_field :video_url, :placeholder => "Youtube URL", :pattern => "http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)|http://youtu\.be\/(.+)|https://youtu\.be\/(.+)"
+    = f.text_field :title, :placeholder => "Title", :required => true
+    = f.text_area :content, :placeholder => "Description", :required => true
+    = f.text_field :tag_list, :placeholder => "Tags", :required => true, :class => "tag_list"
+    .form-field
+      =f.submit 'Submit Post', :class => "btn post_button"
+.youtube-preview
+

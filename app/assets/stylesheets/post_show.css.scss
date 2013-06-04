@@ -1,0 +1,69 @@
+.post {
+	display: inline-block;
+	left-margin: 80px;
+}
+
+.post h3 {
+ 	margin-left: 20px;
+}
+
+.post iframe {
+	margin-left: 20px;
+}
+
+.post_vote_score {
+	color: rgb(230, 172, 39);
+	font-size: 20px;
+}
+
+
+.word_content {
+	font-size: 13px;
+}
+
+
+input.btn-link:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.vote_score {
+	color: black;
+	font-size: 20px;
+
+}
+
+.youtube-input-form {
+	padding: 10px;
+	background-color: #c6c6a4;
+	width: 425px;
+	padding-left: 40px;
+	overflow: auto;
+	float: left;
+}
+
+.youtube-input-form input {
+	display: block;
+	padding: 10px 15px 12px 15px;
+	width: 335px;
+	color: #838383;
+	margin: 10px 0 0 0;
+	font-size: 15px;
+}
+
+.youtube-input-form textarea#post_content {
+	width: 335px;
+	height: 200px;
+	padding: 15px;
+	margin-top: 12px;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #838383;	
+}
+
+.youtube-input-form .post_button {
+	width: 200px;
+}
+
+.youtube-preview {
+	float: right;
+}

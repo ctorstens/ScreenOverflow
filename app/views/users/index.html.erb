@@ -1,0 +1,22 @@
+<h1> Users by karma </h1>
+<hr>
+
+
+<div class="user_list" >
+	<% @users.each do |user| %>
+		<div class="user_info">
+		 	<div class="user_list_name">
+	      <%= link_to user.name, user %>   
+	    </div>  
+			<div class="user_list_image">
+				<% if user.image_url %>    
+		  		<%= link_to(image_tag(user.image_url), user) %>
+				<% else %>  
+		  		<%= link_to(image_tag('default_profile.png'), user) %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+
