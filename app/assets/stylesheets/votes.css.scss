@@ -1,0 +1,46 @@
+
+ul {
+  list-style:none;
+}
+
+.vote_up_comment_form {
+  display: inline;
+}
+
+.vote_down_comment_form {
+  display: inline;
+}
+
+#vote_up_post_form {
+  display: inline;
+}
+
+#vote_down_post_form {
+  display: inline;
+}
+
+.post_vote_score {
+  display: inline;
+}
+
+.vote_score {
+  color: black;
+  font-size: 20px;
+}
+
+.vote {
+  float: left;
+  text-align: center;
+  .btn-link {
+    width: 32px;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .post_vote_score {
+  }
+}
