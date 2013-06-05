@@ -1,3 +1,4 @@
+// COLORS
 
 $background: #393939;
 $background_header: #393939;
@@ -22,7 +23,11 @@ $font_color_search: $background;
 
 $search_glow_color: #9b9b9b;
 
+
+// SCSS
+
 html {
+
   background-color: $background;
   margin-left: 0;
   margin-right: 0;
@@ -35,7 +40,9 @@ html {
       box-shadow: 0 0px 0px rgba(0, 0, 0, 0.075) inset, 0 0 0px $search_glow_color;
       outline: 0 none;
   }
+
   body {
+
     width: 100%;
     hr { margin-left: 0; margin-top: 15px;}
     h1, h2, h3, h4 {color: $font_color_header;}
@@ -47,18 +54,46 @@ html {
     h1, h2, h3, h4 {font-family: "Dosis", sans-serif;}
     background-color: $background;
     padding: 0;
+
     .container {
+
       position: relative;
       top: 52px;
       height: 101%;
       width: 100%;
       padding: 20px;
       background-color: $background;
+
+      .left_sidebar {
+        width: 14%;
+        position: fixed;
+        a {
+          color: #839C85;
+          font-size: 16px;
+          margin-bottom: 5px;
+          margin-left: 0;
+          padding-top: 10px;
+          padding-left: 5px;
+          padding_bottom: 0px;
+          font: 20px "Dosis", sans-serif;
+          &:hover {
+            color: #80BCA3;
+            text-decoration: none;
+          }
+        }
+        // .sort_section {}
+        // .tag_section {}
+      }
+
       .list_of_posts {
+
         width: 86%;
         .all_posts {
+
           #iso_content {
+
             .isotope-item {
+
               background-color: #4c4c4c;
               border: 0;
               margin: 0 10px 10px 0;
@@ -80,6 +115,15 @@ html {
           }
         }
       }
+
+      .pagination {
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 450px;
+        font: 15px "Dosis", sans-serif;
+      }
+
       .post {
         .word_content {
           padding: 10px;
@@ -117,3 +161,359 @@ html {
 
 
 
+
+// ISOTOPE
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+
+
+
+
+
+// POSTS / ISOTOPE
+
+.box-title {
+font-size: 30px;
+margin-bottom: 10px;
+}
+
+.box {
+color: #839C85;
+padding: 15px;
+float: left;
+margin-left: 10px;
+margin-right: 10px;
+width: 250px;
+background: #ffffff;
+border: 2px solid #787878;
+margin-bottom: 20px;
+}
+
+.list_of_posts {
+  width: 100;
+}
+
+.all_posts {
+  display: inline-block;
+  width: 100%;
+  float: left;
+  margin-left: 160px;
+}
+
+#iso_content {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul {
+  list-style:none;
+}
+
+.vote_up_comment_form {
+  display: inline;
+}
+
+.vote_down_comment_form {
+  display: inline;
+}
+
+#vote_up_post_form {
+  display: inline;
+}
+
+#vote_down_post_form {
+  display: inline;
+}
+
+.post_vote_score {
+  display: inline;
+}
+
+.vote_score {
+  color: black;
+  font-size: 20px;
+}
+
+.vote {
+  float: left;
+  text-align: center;
+  .btn-link {
+    width: 32px;
+    text-align: center;
+    color: black;
+    background-color: transparent;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .post_vote_score {
+  }
+}
+
+
+
+// TAGS
+
+.tag_count {
+  width: 70px;
+  color: #80bca3;
+  text-align: center;
+}
+
+.count_title {
+  color: #80bca3;
+}
+
+
+
+
+
+// POST SNAPSHOT
+
+dt.karma {
+  font-size: 30px;
+  display: inline-block;
+  vertical-align: center;
+  text-align: center;
+  width: 60px;
+  height: 100px;
+  padding-top: 5px;
+}
+
+
+dd a.post_title{
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  color: black;
+}
+
+.title_container {
+  width: 400px;
+}
+
+
+.post_img {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+.post_tags {
+  display: inline-block;
+  vertical-align: center;
+  font-size: 10px;
+}
+
+span.post_time {
+  position: absolute;
+  right: 68px;
+}
+
+h3.num_of_vids {
+  text-align: right;
+}
+
+
+dl.post_list_container {
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,.1);
+  padding: 20px;
+}
+
+dl.post_list_container:hover {
+  background-color: rgba(0,0,0,.1);
+}
+
+.post_list_element {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-right: 0px;
+
+}
+
+dd.post_snapshot {
+  height: 100px;
+  margin: 0px;
+}
+
+hr {
+  margin: 10px;
+}
+
+span.user_name a {
+  position: relative;
+  float: left;
+  color: grey;
+}
+
+div.post_bottom {
+  position: absolute;
+  width: 65%;
+  height: 20px;
+  bottom: 0px;
+  margin-left: 60px;
+}
+
+.view_count {
+  position: absolute;
+  font-size: 15px;
+  font-weight: bold;
+  right: 40px;
+  top: -8px;
+}
+
+.word_content p {
+  display: inline-block;
+}
+
+
+
+
+
+// COMMENT
+
+
+.comment dt {
+  width: 80px;
+}
+
+.comment {
+  margin: 10px;
+  width: 695px;
+  white-space: normal;
+  padding: 20px;
+
+}
+
+.comment dd {
+  margin-left: 100px;
+}
+
+.comment p {
+  display: inline-block;
+  width: 620px;
+}
+
+.dl-horizontal dd {
+  white-space: normal;
+
+}
+
+.timestamp {
+  margin-left: 50px;
+}
+
+.edit_buttons {
+  margin-left: 50px;
+}
+
+.word_content {
+  width: 80%;
+  padding: 20px;
+  margin: 10px;
+}
+
+
+.comment-input-form {
+  display: block;
+}
+
+.comment-input-form textarea#comment_comment {
+  width: 695px;
+  height: 100px;
+  padding: 15px;
+  margin-top: 12px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #838383;
+}
+
+.comment-input-form .post_button {
+  width: 200px;
+}
+
+
+
+
+
+// USERS
+
+
+
+.user_image a img {
+  height: 100px;
+  width: 100px;
+}
+
+.user_info {
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #c6c6a4;
+}
+
+.user_list_name {
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  margin-bottom: 8px;
+  font: 15px "Dosis", sans-serif;
+  font-style: bold;
+}
+
+.user_list_name a {
+  color: #393939;
+}
+
+.user_list_image {
+  height: 100px;
+  width: 100px;
+}
