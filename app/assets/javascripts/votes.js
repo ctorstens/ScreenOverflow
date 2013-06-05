@@ -3,8 +3,6 @@ $(document).ready(function() {
   postDownVoteSuccess();
   commentUpVoteSuccess();
   commentDownVoteSuccess();
-
-
 });
 
 
