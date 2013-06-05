@@ -21,6 +21,7 @@ $('.youtube-preview').fadeIn('slow');
   var $container = $('#iso_content');
 
   $container.isotope({
+    // itemSelector: '.isotope-item'
     filter: '*',
     animationOptions: {
       duration: 750,
@@ -55,6 +56,24 @@ $('.youtube-preview').fadeIn('slow');
       var the_link = this.childNodes[1].childNodes[1].attributes[0].nodeValue;
       window.location.href=the_link;
   });
+
+
+
+  // $('input#typeahead_search').quicksearch('#container .isotope-item', {
+  //     'show': function() {
+  //         $(this).addClass('quicksearch-match');
+  //     },
+  //     'hide': function() {
+  //         $(this).removeClass('quicksearch-match');
+  //     }
+  // }).keyup(function(){
+  //     setTimeout( function() {
+  //         $container.isotope({ filter: '.quicksearch-match' }).isotope();
+  //     }, 100 );
+  // });
+
+
+
 
 });
 

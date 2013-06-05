@@ -26,18 +26,6 @@ html {
       div.search_bar {
         margin-right: 15px;
       }
-      .twitter-typeahead {
-        .tt-dropdown-menu {
-          background-color: $background_post_container;
-          padding: 10px;
-          h3, p {
-            color: $background;
-          }
-          .tt-dataset-0, .tt-dataset-1, .tt-dataset-2 {
-            min-width: 188px;
-          }
-        }
-      }
       #squares_bar {
         float: left;
         nav ul {
@@ -138,12 +126,25 @@ html {
         margin-left: 8px;
         float: right;
         position: relative;
+        .twitter-typeahead {
+          .tt-dropdown-menu {
+            background-color: $background_post_container;
+            padding: 10px;
+            h3, p {
+              color: $background;
+            }
+            .tt-dataset-0, .tt-dataset-1, .tt-dataset-2 {
+              min-width: 188px;
+              .tt-suggestions {}
+            }
+          }
+        }
         input[type='text'] {
           width: 200px;
           height: 32px;
           // padding: 0;
           padding: 0 0 0 8px;
-          margin: 0 10px 0 0;
+          margin: 0 10px 10px 0;
           border: 0;
           background-color: $background_search;
           border-radius: 0;
