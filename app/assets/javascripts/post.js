@@ -42,12 +42,19 @@ $('.youtube-preview').fadeIn('slow');
     return false;
   });
 
+  $('.isotope-item').css('cursor', 'pointer');
+
   $('.isotope-item').hover(function(e) {
       $(this).addClass("hover_me");
     }, function(){
       $(this).removeClass("hover_me");
   });
 
-});
+  $('.isotope-item').on('click', function(e) {
+      console.log(this.childNodes[1].childNodes[1].attributes[0].nodeValue);
+      var the_link = this.childNodes[1].childNodes[1].attributes[0].nodeValue;
+      window.location.href=the_link;
+  });
 
+});
 
