@@ -4,6 +4,7 @@ html {
       .list_of_posts {
       }
       .left_sidebar {
+        width: 14%;
         position: fixed;
         a {
           color: #839C85;
@@ -37,7 +38,7 @@ html {
 font-size: 30px;
 margin-bottom: 10px;
 }
- 
+
 .box {
 color: #839C85;
 padding: 15px;
@@ -70,12 +71,12 @@ margin-bottom: 20px;
 .isotope-item {
   z-index: 2;
 }
- 
+
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
 }
- 
+
 .isotope,
 .isotope .isotope-item {
   /* change duration value to whatever you like */
@@ -83,13 +84,13 @@ margin-bottom: 20px;
      -moz-transition-duration: 0.8s;
           transition-duration: 0.8s;
 }
- 
+
 .isotope {
   -webkit-transition-property: height, width;
      -moz-transition-property: height, width;
           transition-property: height, width;
 }
- 
+
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
      -moz-transition-property:    -moz-transform, opacity;
