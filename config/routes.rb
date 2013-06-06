@@ -6,6 +6,7 @@ ScreenOverflow::Application.routes.draw do
       get 'search'
       get 'by_votes'
       get 'by_most_viewed'
+      get 'by_most_recent'
     end
   end
 
