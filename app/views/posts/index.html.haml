@@ -1,14 +1,24 @@
-- @posts.each do |post|
-  %div.all_post
-    = render 'posts/post_snapshot', :post => post
-.sort_buttons
-  = link_to 'Newest', posts_path, id: 'default'
-  = link_to 'Popular', by_votes_posts_path, id: 'votes'
-  = link_to 'Views', by_most_viewed_posts_path, id: 'votes'
-  .sort_tags
+.list_of_posts
+  - @posts.each do |post|
+    %div.all_post
+      = render 'posts/post_snapshot', :post => post
+.left_sidebar
+  .sort_section
     %h3
-      Top 10 Tags
-    = render :partial => 'tags/show_tags', :locals => {:tags => @tags}
+      Sort By
+      %ul
+        %li
+          = link_to 'Most Recent', by_most_recent_posts_path
+        %li
+          = link_to 'Votes', by_votes_posts_path
+        %li
+          = link_to 'Views', by_most_viewed_posts_path
+  .tag_section
+    %h3
+      Top Tags
+      %ul
+        - @tags.each do |tag|
+          %li
+            = link_to tag["name"], "/tags/#{tag["name"]}"
 %p.pagination
   = will_paginate @posts
-
