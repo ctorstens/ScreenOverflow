@@ -1,6 +1,13 @@
 .post {
 	display: inline-block;
 	left-margin: 80px;
+  .word_content {
+    font-size: 13px;
+    width: 700px;
+    p {
+      margin: 0 20px 0 20px;
+    }
+  }
 }
 
 h3.post {
@@ -17,6 +24,4 @@ h3.post {
 }
 
 
-.word_content {
-	font-size: 13px;
-}
+
