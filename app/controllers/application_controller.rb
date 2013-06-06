@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
   def login(request)
   	auth = request.env["omniauth.auth"]
   	user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+    user.update_attributes(
+      :name => auth["info"]["name"],
+      :email => auth["info"]["email"],
+      :first_name => auth["info"]["first_name"],
+      :last_name => auth["info"]["last_name"],
+      :image_url => auth["info"]["image"]
+    )
   	session[:user_id] = user.id 
   end
 
